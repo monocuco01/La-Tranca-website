@@ -1,0 +1,13 @@
+.containerAllCollage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerPCollage {
+  background-color: #c79d70;
+  width: 80%;
+  height: 100vh;
+  margin-top: 500px;
+}

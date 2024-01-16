@@ -1,0 +1,147 @@
+.containerLetter {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  height: 547px;
+  margin-left: 0px;
+}
+.imgContainer img {
+  height: 547px;
+}
+.letters {
+  flex-direction: column;
+  display: flex;
+  color: #211916;
+  font-family: "Domine", serif;
+  width: 100%;
+  background-color: #c79d70;
+  justify-content: center;
+}
+.letters h2 {
+  width: 500px;
+  font-size: 35px;
+  margin-bottom: 40px;
+  margin-left: 50px;
+}
+.letters p {
+  width: 500px;
+  font-size: 20px;
+  margin-bottom: 70px;
+  margin-left: 50px;
+}
+
+.letters button {
+  width: 145px;
+  height: 57px;
+  color: white;
+  background-color: #211916;
+  border: none;
+  border-radius: 10px;
+  font-family: "Domine", serif;
+  margin-left: 50px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Agregado efecto de transición */
+  cursor: pointer;
+}
+
+.letters button:hover {
+  background-color: #382f25; /* Cambio de color de fondo al pasar el ratón */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra al pasar el ratón */
+}
+.containerHomeLayers {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.secondLayerHome{
+    display: flex;
+    margin-top: 200px;
+}
+.secondLayerHome svg{
+margin-left: 50px;
+margin-right: 50px;
+transform: scale(0.7);
+}
+/* Para pantallas de hasta 425px */
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .containerLetter {
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .imgContainer img {
+    width: 100%;
+    height: 350px;
+  }
+
+  .letters {
+    position: absolute;
+    margin-top: 50px;
+    flex-direction: column;
+    display: flex;
+    color: #cdb396;
+    font-family: "Domine", serif;
+    width: 100%;
+    background-color: #00000086;
+  }
+
+  .letters h2 {
+    width: 80%;
+    font-size: 22px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .letters p {
+    width: 80%;
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  .letters button {
+    width: 100px;
+    height: 40px;
+    color: #cdb396;
+    background-color: #211916;
+    border: none;
+    border-radius: 10px;
+    font-family: "Domine", serif;
+    margin-left: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Agregado efecto de transición */
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .letters button:hover {
+    background-color: #382f25; /* Cambio de color de fondo al pasar el ratón */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra al pasar el ratón */
+  }
+  .secondLayerHome{
+    display: flex;
+    margin-top: 50px;
+    flex-direction:column;
+    width: 100%;
+}
+.secondLayerHome svg{
+margin-top: 0;
+transform: scale(0.8);
+}
+.casita, .persona, .money{
+ width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}
