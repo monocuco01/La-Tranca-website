@@ -8,6 +8,77 @@
 .containerPCollage {
   background-color: #c79d70;
   width: 80%;
-  height: 100vh;
+  position: relative;
   margin-top: 500px;
+}
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.primera img {
+  width: 352px;
+  height: 452px;
+  margin-left: 90px;
+  margin-top: 50px;
+}
+.segunda img {
+  width: 529px;
+  height: 350px;
+  margin-left: 36px;
+  margin-top: 50px;
+}
+.tercera img {
+  width: 352px;
+  height: 402px;
+  margin-left: 90px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+.cuarta img {
+  width: 529px;
+  margin-left: 36px;
+  margin-bottom: 100px;
+  top: 445px;
+  position: absolute;
+  height: 505px;
+}
+.containerINSTA {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.containerINSTA h2 {
+  width: 80%;
+  margin-bottom: 50px;
+  color: white;
+}
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .primera img,
+  .segunda img,
+  .cuarta img {
+    display: none;
+  }
+  .containerPCollage {
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    display: inline;
+  }
+  .photos{
+    display: block;
+  }
+  .tercera img {
+    width: 80%;
+    height: 70%;
+    margin-left: 10%;
+    margin-bottom: 50px;
+    margin-top: 60px;
+    
+  }
+  .containerINSTA{
+    margin-top: 0px;
+  }
 }

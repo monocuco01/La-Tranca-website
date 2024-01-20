@@ -3,6 +3,8 @@ import "./home.css";
 import Letter from "./Letter/Letter";
 import About from "./About/About";
 import Collage from "./Collage/Collage";
+import Delivery from "./delivery/Delivery";
+import Footer from "./footer/Footer";
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -40,8 +42,11 @@ const Home = () => {
       <Letter />
       <About/>
       <Collage/>
+      <Delivery/>
+      <Footer/>
     </div>
   );
 };
 
 export default Home;
+
