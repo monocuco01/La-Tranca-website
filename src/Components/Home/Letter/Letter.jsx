@@ -1,6 +1,6 @@
 import React from "react";
 import "./Letter.css";
-
+import { Link } from "react-router-dom";
 const Letter = () => {
   return (
     <div className="containerHomeLayers">
@@ -9,7 +9,7 @@ const Letter = () => {
           <img
             src="https://res.cloudinary.com/dziwyqnqk/image/upload/v1705379545/La%20Tranca/-Disfrutar_de_un_buen_caf%C3%A9_por_la_ma%C3%B1ana_modo_Am_cafe_caf%C3%A9_vino_cienaga_cienagamagdalena_zposyt.jpg"
             alt=""
-            srcSet=""
+            
           />
         </div>
         <div className="letters">
@@ -19,7 +19,9 @@ const Letter = () => {
             sentidos, consumes toda la bondad de los más finos granos de café,
             con el mejor aroma, sabor y calidad.
           </p>
-          <button>Ver Menú</button>
+          <Link to="/menu" >
+            <button>Ver Menú</button>
+          </Link>
         </div>
       </div>
       <div className="secondLayerHome">

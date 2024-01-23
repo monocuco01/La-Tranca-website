@@ -5,6 +5,7 @@ import About from "./About/About";
 import Collage from "./Collage/Collage";
 import Delivery from "./delivery/Delivery";
 import Footer from "./footer/Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(true);
@@ -29,10 +30,13 @@ const Home = () => {
           <h3>Sobre nosotros</h3>
           <h3>Menú</h3>
           <h3>Información</h3>
-          <div className="botondomicilio">
-            <p>Domicilio</p>
-          </div>
+          <Link to="/menu">
+            <div className="botondomicilio">
+              <p>Domicilio</p>
+            </div>
+          </Link>
         </div>
+    
         <div className="botonmenu">
           <button className="menuButton" onClick={toggleMenu}>
             ☰ Menú
@@ -40,13 +44,12 @@ const Home = () => {
         </div>
       </div>
       <Letter />
-      <About/>
-      <Collage/>
-      <Delivery/>
-      <Footer/>
+      <About />
+      <Collage />
+      <Delivery />
+      <Footer />
     </div>
   );
 };
 
 export default Home;
-

@@ -1,0 +1,11 @@
+.containerFiltros {
+  height: 70px;
+  width: 100%;
+  /* background-color: #412318; */
+  background-color: #c79d70;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
