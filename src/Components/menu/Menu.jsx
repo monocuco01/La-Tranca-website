@@ -3,7 +3,7 @@ import "./menu.css";
 import carrito from "../../img/basket.svg";
 import person from "../../img/person-circle (3).svg";
 import Filtros from "./filtros/Filtros";
-import Card from "./Card/Card";
+
 import Cards from "./Cards/Cards";
 const Menu = () => {
   return (
@@ -30,7 +30,7 @@ const Menu = () => {
       <div className="containerMenu"></div>
       <Filtros />
       <div className="containerCards">
-        <h2>Cafes Calientes</h2>
+        
         <Cards/>
       </div>
     </>
