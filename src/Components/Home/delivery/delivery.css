@@ -10,7 +10,7 @@
   align-items: center;
   align-items: center;
   margin-top: 200px;
-  width: 80%;
+  width: 100%;
   height: 450px;
   background-color: #211916;
   margin-bottom: 200px;
@@ -27,73 +27,81 @@
   justify-content: center;
   background-color: #211916;
   height: 100%;
-  color: #C79D70;
+  color: #c79d70;
   flex-direction: column;
 }
 
-.elpropioh3{
-    display: flex;
-    justify-self: center;
-    justify-content: space-evenly;
-    width: 90%;
-    margin-bottom: 60px;
+.elpropioh3 {
+  display: flex;
+  justify-self: center;
+  justify-content: space-evenly;
+  width: 90%;
+  margin-bottom: 60px;
 }
-.containerlettras h1{
-margin-bottom: 50px;
-font-size: 40px;
+.containerlettras h1 {
+  margin-bottom: 50px;
+  font-size: 40px;
 }
-.containerlettras p{
-font-size: 23px;
-width: 50%;
-text-align: center;
-margin-bottom: 70px;
-color: #CDB396;
+.containerlettras p {
+  font-size: 23px;
+  width: 50%;
+  text-align: center;
+  margin-bottom: 70px;
+  color: #cdb396;
 }
 
 .containerpanelD button {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    border-radius: 8px;
-    height: 50px;
-    width: 150px;
-    background-color: #C79D70;
-    
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Agregado efecto de transición */
-    cursor: pointer;
-    border: none;
-    font-size: large;
-    color: white;
-  }
-  
-  .containerpanelD button:hover {
-    background-color: rgb(228, 172, 108); /* Cambio de color de fondo al pasar el ratón */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra al pasar el ratón */
-  }
-  @media only screen and (min-width: 320px) and (max-width: 440px) {
-    .containerlettras p{
-      font-size: medium;
-    }
-    .containerlettras h1{
-      font-size: large;
-    }
-    .elpropioh3 h3{
-      font-size: medium;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  border-radius: 8px;
+  height: 50px;
+  width: 150px;
+  background-color: #c79d70;
 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Agregado efecto de transición */
+  cursor: pointer;
+  border: none;
+  font-size: large;
+  color: white;
+}
+
+.containerpanelD button:hover {
+  background-color: rgb(
+    228,
+    172,
+    108
+  ); /* Cambio de color de fondo al pasar el ratón */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra al pasar el ratón */
+}
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .containerlettras p {
+    font-size: medium;
   }
-  .elpropioh3{
+  .containerlettras h1 {
+    font-size: large;
+  }
+  .elpropioh3 h3 {
+    font-size: medium;
+  }
+  .elpropioh3 {
     width: 100%;
     justify-content: space-evenly;
   }
-  .containerlettras{
+  .containerlettras {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.493);
     height: 100%;
     width: 100%;
-    color: #CDB396;
+    color: #cdb396;
+    margin-right: 10%;
+  }
+  .containerINSTA h2 {
+    font-size: 20px;
+    font-weight: 300;
   }
   .photocontainer img {
     width: 100%;
@@ -104,7 +112,7 @@ color: #CDB396;
     align-items: center;
     align-items: center;
     margin-top: 200px;
-    width: 80%;
+    width: 100%;
     height: 350px;
     background-color: #211916;
     margin-bottom: 200px;
@@ -113,4 +121,4 @@ color: #CDB396;
   .containerpanelD button {
     margin-top: 0px;
   }
-  }
+}
