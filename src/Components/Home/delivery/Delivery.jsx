@@ -12,7 +12,7 @@ const Delivery = () => {
 
           <h1>Tenemos domicilios</h1>
           <p>Con nuestro servicio disfruta del mejor cafe en minutos </p>
-          <button>solicitar</button>
+          <button>solicitar ahora</button>
         </div>
         <div className="photocontainer">
           <img

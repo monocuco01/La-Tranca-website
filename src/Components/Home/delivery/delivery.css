@@ -54,8 +54,8 @@
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   border-radius: 8px;
-  height: 50px;
-  width: 150px;
+  height: 60px;
+  width: 180px;
   background-color: #c79d70;
 
   color: white;
@@ -120,5 +120,8 @@
   }
   .containerpanelD button {
     margin-top: 0px;
+    font-size: 13px;
+    width: 130px;
+    height: 40px;
   }
 }
