@@ -29,17 +29,20 @@
   margin-top: 10px;
   margin-right: 50px;
 }
-.containerCards{
+.containerCards {
   font-family: "Inter", sans-serif;
 }
 .containerCards h2 {
   margin-top: 50px;
   margin-left: 40px;
 }
+a {
+  outline: none;
+  text-decoration: none;
 
-@media only screen and (min-width: 320px) and (max-width: 440px) {
- 
-.botondomicilio{
-  display: none;
 }
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .botondomicilio {
+    display: none;
+  }
 }

@@ -1,10 +1,12 @@
+// Menu.jsx
 import React from "react";
 import "./menu.css";
 import carrito from "../../img/basket.svg";
 import person from "../../img/person-circle (3).svg";
 import Filtros from "./filtros/Filtros";
-
 import Cards from "./Cards/Cards";
+import Detail from "./Detail/Detail"; // Importa el componente Detail
+
 const Menu = () => {
   return (
     <>
@@ -27,11 +29,13 @@ const Menu = () => {
           </div>
         </div>
       </div>
-      <div className="containerMenu"></div>
+      <div className="containerMenu">
+      
+     
+      </div>
       <Filtros />
       <div className="containerCards">
-        
-        <Cards/>
+        <Cards />
       </div>
     </>
   );

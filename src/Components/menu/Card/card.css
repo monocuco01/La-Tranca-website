@@ -13,6 +13,13 @@
   justify-content: space-evenly;
   align-items: flex-start;
   align-content: space-between;
+
+  color: black;
+}
+.PrincipalContainerCard a {
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
 }
 .containerimg img {
   height: 120px;
@@ -31,6 +38,7 @@
   margin-bottom: 15px;
   font-size: small;
   margin-left: 10px;
+  text-decoration: none; /* Quita subrayado de enlace */
 }
 .containerTextPricemore h3 {
   margin-top: 10px;
@@ -72,7 +80,7 @@
   .containerTextPricemore h3 {
     margin-top: 10px;
     margin-left: 10px;
-  font-size: 18px;
+    font-size: 18px;
   }
   .containerTextPricemore h5 {
     margin-bottom: 10px;
