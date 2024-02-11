@@ -1,0 +1,22 @@
+.containerNavBarlogin {
+  height: 70px;
+  background-color: rgb(235, 235, 235);
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Domine", serif;
+}
+.containerLogoLogin {
+  margin-left: 460px;
+}
+
+.containerLogoLogin img {
+  height: 50px;
+}
+.containerVolver {
+  width: 100px;
+  font-size: larger;
+  margin-left: 30px;
+  font-weight: 600;
+}

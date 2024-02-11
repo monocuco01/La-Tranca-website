@@ -1,0 +1,31 @@
+.containerallinicio {
+  display: flex;
+  background-color: black;
+}
+.containerInicioAdmim {
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+.containeraccount {
+  width: 400px;
+  margin-top: 50px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 100px;
+  margin-left: 20px;
+  color: black;
+}
+.containerusers {
+  width: 400px;
+  margin-top: 50px;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 120px;
+  color: black;
+}

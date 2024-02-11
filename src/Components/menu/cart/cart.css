@@ -1,0 +1,189 @@
+.containerCartALL {
+  position: fixed;
+  top: 70px;
+  right: 100px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-family: "Inter", sans-serif;
+}
+
+.containerCartALL ul {
+  list-style: none;
+
+  padding: 0;
+}
+
+.containerCartALL li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0.2px 0.5px black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.containerCartALL img {
+  max-width: 80px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.containerCart {
+  margin-top: 10px;
+}
+
+.containerCart h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.containerCart p {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+.containerCart button {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 3px;
+  margin-left: 5px;
+  outline: none;
+  width: 50px;
+  font-size: medium;
+  font-weight: 400;
+}
+
+.containerCart button:hover {
+  color: white;
+  background-color: #c79d70;
+}
+
+.containerCart button:active {
+  background-color: #c79d70;
+  color: white;
+}
+.mueta {
+  display: flex;
+}
+.botoncitossumapave {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-left: 50px;
+}
+.containerCartALL img {
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.pay-link {
+  color: white;
+}
+.botonpaylink {
+  width: 210px;
+  height: 43px;
+  background-color: #c79d70;
+  color: white;
+  text-decoration: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.subtotal-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  color: white;
+}
+.trash-button {
+  width: 80px;
+  border: none;
+  cursor: pointer;
+}
+.accountButtons {
+  position: fixed;
+  width: 150px;
+  background-color: #ffffff;
+  top: 70px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  border-radius: 8px; /* Esquinas redondeadas */
+  overflow: hidden; /* Oculta cualquier contenido adicional fuera del contenedor */
+}
+
+.accountButtons button {
+  border: none;
+  height: 60px;
+  cursor: pointer;
+  color: #2c2c2c; /* Color de texto más oscuro */
+  font-size: 15px; /* Tamaño de fuente ligeramente más grande */
+  background-color: #ffffff;
+  transition: background-color 0.3s ease; /* Transición para suavizar el cambio de color de fondo */
+}
+
+.accountButtons button:hover {
+  background-color: #c79d70; /* Cambia el color de fondo al pasar el ratón */
+  color: white;
+}
+
+.accountButtons button:not(:last-child) {
+  border-bottom: 1px solid #eee; /* Línea divisoria entre botones */
+}
+
+.containerCartALL {
+  position: fixed;
+  top: 80px;
+  right: -400px; /* Comienza fuera de la pantalla */
+
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-family: "Inter", sans-serif;
+  transition: right 0.5s ease-in-out; /* Agrega una transición solo a la propiedad 'right' */
+}
+
+.containerCartALL.open {
+  right: 0; /* Muestra el carrito cuando tiene la clase 'open' */
+}
+
+.containerCartALL.open + .containerCartOverlay {
+  display: block; /* Muestra el fondo semi-transparente cuando el carrito está abierto */
+}
+.containerCartOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.336); /* Color de fondo semi-transparente */
+  z-index: 998; /* Asegúrate de que esté detrás del contenedor del carrito */
+  /* Agrega cualquier otro estilo necesario */
+  margin-top: 80px;
+}
+.a svg,
+.b svg,
+.c svg {
+  margin-right: 10px;
+}
+.a a,
+.b a,
+.c a {
+  color: #2c2c2c;
+}

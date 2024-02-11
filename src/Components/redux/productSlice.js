@@ -1,4 +1,3 @@
-// productSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getAllProducts = createAsyncThunk("products/getAll", async () => {
@@ -27,22 +26,27 @@ export const getProductById = createAsyncThunk(
     }
   }
 );
+const cartSlice = createSlice({
+  name: "cart",
+  initialState: [],
+  reducers: {
+    addToCart: (state, action) => {
+      state.push(action.payload);
+    },
+  },
+});
 
 const productSlice = createSlice({
   name: "products",
   initialState: { products: [], selectedProduct: null },
-  reducers: {},
+  reducers: {cartSlice},
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.products = action.payload;
     });
 
     builder.addCase(getProductById.fulfilled, (state, action) => {
-      // Actualiza el estado con el producto seleccionado o reinicia a null si no hay producto
       state.selectedProduct = action.payload.data || null;
-
-      // Agrega un console.log para ver el contenido de selectedProduct
-      console.log("Updated selectedProduct:", state.selectedProduct);
     });
   },
 });

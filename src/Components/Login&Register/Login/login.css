@@ -1,0 +1,112 @@
+.containerLoginALL {
+  display: flex;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+.containerimgLogin {
+  width: 50%;
+}
+.containerimgLogin img {
+  height: 90vh;
+  width: 100%;
+}
+.loginpart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  width: 50%;
+  position: relative;
+}
+.loginpart h2 {
+  margin-top: 40px;
+}
+.containerformlogin {
+  flex-direction: column;
+  display: flex;
+
+  align-items: center;
+  width: 100%;
+}
+
+.containerLINKRegister {
+  margin-top: 60px;
+}
+
+.containerformlogin .correo {
+  position: absolute;
+  top: 140px;
+  font-size: medium;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
+.containerformlogin .username {
+  margin-top: 100px;
+  margin-bottom: 10px;
+}
+.containerformlogin .contra {
+  font-size: medium;
+  position: absolute;
+  top: 230px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
+.containerformlogin .contraconfirm {
+  font-size: medium;
+  position: absolute;
+  top: 310px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+}
+.containerformlogin input {
+  margin-top: 50px;
+  width: 300px;
+  height: 30px;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  border-bottom-style: none;
+  box-shadow: 0px 1px 0.2px rgb(117, 117, 117);
+  border-bottom-width: 1px;
+  font-size: medium;
+  background-color: transparent;
+}
+
+.botoneslogin {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.botoneslogin button {
+  height: 50px;
+  cursor: pointer;
+  font-size: medium;
+}
+.botoneslogin .google {
+  border: none;
+  color: #c79d70;
+}
+.botoneslogin .ingresa {
+  border-radius: 10px;
+  background-color: #c79d70;
+  border-color: #c79d70;
+  border-style: none;
+  color: white;
+}
+.containerLINKRegister {
+  display: flex;
+  color: #000000;
+}
+.containerLINKRegister .ojito {
+  color: #211916;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.containerLINKRegister .ojitopillin {
+  color: #211916;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}

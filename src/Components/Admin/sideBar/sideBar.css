@@ -1,0 +1,75 @@
+.containerSideBarAdmin {
+  height: 100vh;
+  width: 20%;
+  background-color: #211916;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.containerIMGadminbar img {
+  width: 200px;
+  margin-top: 40px;
+}
+.containerOpcionesBar {
+  height: 100%;
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: large;
+  flex-direction: column;
+
+  text-align: center;
+}
+.salir {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-right: 40px;
+}
+.containerOpcionesBar p:hover {
+  width: 100%;
+  background-color: #644c44;
+  height: 40px;
+  cursor: pointer;
+  height: 40px;
+  font-size: large;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.containerOpcionesBar p {
+  height: 40px;
+  font-size: large;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.containerOpcionesBar a:hover {
+  width: 100%;
+  background-color: #644c44;
+  height: 40px;
+  cursor: pointer;
+  height: 40px;
+  font-size: large;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  color: white;
+}
+.containerOpcionesBar a {
+  height: 40px;
+  color: white;
+  font-size: large;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
