@@ -1,0 +1,28 @@
+.whatsapp-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Agregar animaciones con la librería animate.css */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate__fadeInRight {
+  animation: fadeInRight 0.5s ease-in-out;
+}
+
+/* Cambiar el cursor al pasar el ratón sobre el botón */
+.whatsapp-container:hover {
+  cursor: pointer;
+}

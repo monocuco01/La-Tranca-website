@@ -1,24 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const loadUserFromStorage = () => {
+  const userFromStorage = localStorage.getItem("user");
+  return userFromStorage
+    ? JSON.parse(userFromStorage)
+    : { users: [], currentUser: null };
+};
+
+const saveUserToStorage = (user) => {
+  localStorage.setItem("user", JSON.stringify(user));
+};
+
+const clearUserData = (state, action) => {
+  state.users = [];
+  state.currentUser = null;
+  saveUserToStorage(state);
+};
+
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-    users: [],
-    currentUser: null, // Nuevo campo para almacenar el usuario logueado
-  },
+  initialState: loadUserFromStorage(),
   reducers: {
     setUsers: (state, action) => {
       state.users = action.payload;
+      saveUserToStorage(state);
     },
     addUser: (state, action) => {
       state.users.push(action.payload);
+      saveUserToStorage(state);
     },
     loginUser: (state, action) => {
       state.currentUser = action.payload;
+      saveUserToStorage(state);
     },
-    // Agrega más reducers según tus necesidades
+    clearUser: clearUserData,
   },
 });
 
-export const { setUsers, addUser, loginUser } = userSlice.actions;
+export const { setUsers, addUser, loginUser, clearUser } = userSlice.actions;
 export default userSlice.reducer;

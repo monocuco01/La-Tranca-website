@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { logout, selectIsAuthenticated } from "../redux/loginSlice";
 
 const Account = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
+  const isAuthenticated = useSelector(selectIsAuthenticated);
 
   // Podes usar el useEffect para cargar los datos del usuario solo cuando cambie currentUser
   useEffect(() => {
-    // Aquí podés realizar cualquier lógica adicional para cargar datos del usuario si es necesario
+    console.log(currentUser);
+    console.log(isAuthenticated);
   }, [currentUser]);
 
   return (

@@ -1,5 +1,8 @@
 .containerFiltros {
+  position: fixed;
   height: 70px;
+  top: 80px;
+  z-index: 10;
   width: 100%;
   /* background-color: #412318; */
   background-color: #c79d70;
@@ -9,9 +12,9 @@
   color: white;
   font-family: "Inter", sans-serif;
 }
+
 @media only screen and (min-width: 320px) and (max-width: 440px) {
-  .containerFiltros{
-   display: none;
+  .containerFiltros {
+    display: none;
   }
- }
- 
+}

@@ -2,12 +2,20 @@
   position: relative;
 }
 .containerNavBarMenu {
+  position: fixed;
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-family: "Inter", sans-serif;
+  z-index: 9998;
+
+  background-color: white;
+}
+.ajapollo {
+  width: 100%;
+  height: 150px;
 }
 .containerimgMenu img {
   height: 50px;

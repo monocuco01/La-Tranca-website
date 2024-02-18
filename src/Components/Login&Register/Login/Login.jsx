@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUsers, loginUser } from "../../redux/userSlice";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+import { login } from "../../redux/loginSlice"; // Importa la acción de login
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,29 +32,44 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Lógica para verificar si los datos coinciden con algún usuario en la base de datos
     const userFound = users.find((user) => {
-      console.log("Comparando contraseñas para el usuario:", user.email);
       const isPasswordCorrect = bcrypt.compareSync(password, user.password);
-      console.log("Contraseñas coinciden:", isPasswordCorrect);
+      const userEmailLowerCase = user.email.toLowerCase();
+      const inputEmailLowerCase = email.toLowerCase();
 
-      return user.email === email && isPasswordCorrect;
+      return userEmailLowerCase === inputEmailLowerCase && isPasswordCorrect;
     });
 
     if (userFound) {
-      // Despacha la acción para almacenar el usuario logueado
+      dispatch(login()); // Despacha la acción de login para actualizar el estado de autenticación
       dispatch(loginUser(userFound));
-      navigate("/adminpart"); // Reemplaza con la ruta deseada
+      Swal.fire({
+        title: "¡Bienvenido de nuevo!",
+        text: "Disfruta del mejor café.",
+        icon: "success",
+        customClass: {
+          popup: "custom-swal",
+          title: "custom-swal",
+          htmlContainer: "custom-swal",
+          confirmButton: "custom-swal",
+        },
+      }).then((result) => {
+        // Verifica si el usuario hizo clic en el botón de confirmación
+        if (result.isConfirmed) {
+          window.location.href = "/menu";
+        }
+      });
     } else {
-      console.error("Credenciales incorrectas");
-      // Maneja el error según tus necesidades
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Algo no está correcto. Por favor, verifica tus datos e intenta nuevamente.",
+        customClass: {
+          popup: "custom-swal",
+          title: "custom-swal",
+        },
+      });
     }
-    console.log("Datos que se enviarán en el login:", {
-      email,
-      password,
-      userFound,
-    });
   };
 
   return (

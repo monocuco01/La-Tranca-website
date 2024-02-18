@@ -6,7 +6,8 @@ const loadAuthFromStorage = () => {
 };
 
 const saveAuthToStorage = (auth) => {
-  localStorage.setItem("auth", JSON.stringify(auth));
+  const authCopy = { ...auth };  // Crea una copia del objeto
+  localStorage.setItem("auth", JSON.stringify(authCopy));
 };
 
 const authSlice = createSlice({

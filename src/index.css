@@ -2,3 +2,21 @@
   padding: 0;
   margin: 0;
 }
+/* sweet-alert-custom.css */
+
+.custom-swal {
+  font-family: "Arial", sans-serif;
+}
+
+.custom-swal .swal2-confirm {
+  background-color: #c79d70; /* Cambia esto al color que desees para el botón */
+  color: #ffffff; /* Cambia esto al color que desees para el texto del botón */
+}
+custom-swal .swal2-icon .swal2-success-line-tip,
+.custom-swal .swal2-icon .swal2-success-line-long {
+  background-color: #4caf50; /* Cambia el color del ícono "success" */
+}
+
+.custom-swal .swal2-icon .swal2-success-ring {
+  border: 3px solid #c79d70; /* Cambia el color del anillo del ícono "success" */
+}

@@ -1,0 +1,24 @@
+/* pedidos.css */
+
+.containerAllPedidos {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  position: relative;
+}
+
+.containercardsOrder {
+  width: 100%;
+  height: 100vh;
+  margin-left: 20%;
+}
+/* Estilos generales */
+.containerordene {
+  margin-top: 50px;
+  width: 10%;
+  margin-left: 20px;
+}
+.containercardsORDERdeverdad {
+  margin-left: 3%;
+}
+/* oito */

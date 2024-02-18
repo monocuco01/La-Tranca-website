@@ -1,0 +1,11 @@
+.containerPaymentM {
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  margin-left: 70px;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 20px;
+}

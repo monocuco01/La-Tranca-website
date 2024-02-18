@@ -10,15 +10,14 @@ const Card = ({ product }) => {
     setIsClicked(true);
   };
 
-  if (isClicked) {
-    // No renderizar nada aquí, ya que ahora estás usando React Router
-    return null;
-  }
-
   return (
-    <Link to={`/products/${product.id}`} onClick={handleClick} className="PrincipalContainerCard">
+    <Link
+      to={`/products/${product.id}`}
+      onClick={handleClick}
+      className="PrincipalContainerCard"
+    >
       <div className="containerTextPricemore">
-        <h3>{product.name}</h3> 
+        <h3>{product.name}</h3>
         <p>{product.description}</p>
         <h5>$ {product.price}</h5>
       </div>

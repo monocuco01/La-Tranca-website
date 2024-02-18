@@ -38,8 +38,13 @@ const cartSlice = createSlice({
 
 const productSlice = createSlice({
   name: "products",
-  initialState: { products: [], selectedProduct: null },
-  reducers: {cartSlice},
+  initialState: { products: [], selectedProduct: null, productIds: 0 }, // Modificado el valor inicial de productId
+  reducers: {
+    setProductIds: (state, action) => {
+      state.productIds = action.payload;
+    },
+    // Otros reducers si los necesitas...
+  },
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.products = action.payload;
@@ -50,5 +55,5 @@ const productSlice = createSlice({
     });
   },
 });
-
+export const { setProductIds } = productSlice.actions;
 export default productSlice.reducer;

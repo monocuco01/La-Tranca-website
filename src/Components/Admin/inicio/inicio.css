@@ -1,31 +1,104 @@
+/* inicio.css */
+
 .containerallinicio {
   display: flex;
-  background-color: black;
+  font-family: "Inter", sans-serif;
+  background-color: white; /* Fondo azul pastel */
+  color: #333333; /* Color de texto principal */
+  height: 100vh;
 }
+
 .containerInicioAdmim {
   margin-top: 40px;
-  margin-left: 40px;
+  margin-left: 22%;
   width: 100%;
-  color: white;
   display: flex;
   flex-wrap: wrap;
 }
-.containeraccount {
-  width: 400px;
-  margin-top: 50px;
-  height: 200px;
-  background-color: white;
-  border-radius: 10px;
-  margin-right: 100px;
-  margin-left: 20px;
+
+.lape p {
+  font-size: 25px;
+  font-weight: 700;
   color: black;
 }
+
+.personitatotal {
+  width: 80px;
+  height: 80px;
+  background-color: #37474f; /* Azul oscuro */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+
+.cuentascreadas,
+.ordenescreadas {
+  width: 52%;
+  margin-right: 20%;
+}
+
+.carritodemina {
+  width: 80px;
+  height: 80px;
+  background-color: #aed581; /* Verde */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+}
+
+.containeraccount,
 .containerusers {
+  display: flex;
   width: 400px;
   margin-top: 50px;
-  height: 200px;
-  background-color: white;
+  height: 150px;
+  background-color: #ffffff; /* Fondo blanco para los contenedores */
   border-radius: 10px;
-  margin-right: 120px;
-  color: black;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  color: #333333;
+  padding: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.219); /* Sutil sombra */
+  justify-content: center;
+  align-items: center;
+}
+
+.containeraccount p,
+.containerusers p {
+  font-size: 21px;
+}
+
+.containeraccount {
+  margin-right: 40px;
+}
+
+/* Estilos para la tabla */
+.containerallinicio table {
+  width: 85%;
+  border-collapse: collapse;
+  margin-left: 50px;
+  margin-top: 20px;
+  background-color: #ffffff; /* Fondo blanco para la tabla */
+  color: #333333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containerallinicio th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd; /* Línea de separación más clara */
+}
+
+.containerallinicio th {
+  background-color: #aed581; /* Verde */
+  color: #333333;
+}
+
+.containerallinicio tr:hover {
+  background-color: #cad4f7; /* Cambio de color al pasar el ratón sobre una fila */
 }

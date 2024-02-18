@@ -1,0 +1,9 @@
+.app-container {
+  position: relative;
+}
+.my-swal-title-class {
+  font-family: "Inter", sans-serif;
+}
+.my-swal-text-class {
+  font-family: "Inter", sans-serif;
+}

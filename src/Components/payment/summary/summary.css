@@ -1,0 +1,54 @@
+.containerSummaryPrincipal {
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+  margin-left: 50px;
+  margin-top: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 30px;
+  margin-right: 40px;
+}
+.containerdetoditocosto {
+  margin-left: 10px;
+}
+.resumen {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.containercostos {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.containercostos p {
+  margin-bottom: 20px;
+}
+.containercostos h3 {
+  margin-top: 6%;
+}
+.brrrr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.botoncontainercosto {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  height: auto;
+  justify-content: center;
+}
+.botoncontainercosto button {
+  background-color: #c79d70;
+  height: 54px;
+  width: 292px;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: medium;
+  cursor: pointer;
+}

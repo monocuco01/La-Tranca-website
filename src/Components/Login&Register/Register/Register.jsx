@@ -36,9 +36,9 @@ const Register = () => {
       console.log("Registro exitoso:", response.data);
 
       // Después del registro exitoso, puedes redirigir a otra página
-      navigate("/ruta-de-exito");
+      navigate("/");
     } catch (error) {
-      console.error("Error al registrar:", error.response.data);
+      console.error("Error al registrar");
       // Maneja el error según tus necesidades
     }
   };

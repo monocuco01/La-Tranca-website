@@ -1,5 +1,6 @@
 import React from "react";
 import "./delivery.css";
+import { Link } from "react-router-dom";
 const Delivery = () => {
   return (
     <div className="containerDeliveryPart">
@@ -12,7 +13,12 @@ const Delivery = () => {
 
           <h1>Tenemos domicilios</h1>
           <p>Con nuestro servicio disfruta del mejor cafe en minutos </p>
-          <button>solicitar ahora</button>
+          <Link
+            to="https://wa.me/3244707930?text=Hola,%20me%20gustaría%20realizar%20un%20pedido.%20¿Podrías%20proporcionarme%20más%20información%20sobre%20los%20productos%20disponibles%20y%20el%20proceso%20de%20compra?"
+            target="_blank"
+          >
+            <button>solicitar ahora</button>
+          </Link>
         </div>
         <div className="photocontainer">
           <img

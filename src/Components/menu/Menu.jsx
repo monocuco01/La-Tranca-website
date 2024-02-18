@@ -7,8 +7,10 @@ import NavBar from "./NavBar/NavBar";
 const Menu = () => {
   return (
     <>
-      <NavBar />
-      <Filtros />
+      <div className="ajapollo">
+        <NavBar />
+        <Filtros />
+      </div>
       <div className="containerCards">
         <Cards />
       </div>

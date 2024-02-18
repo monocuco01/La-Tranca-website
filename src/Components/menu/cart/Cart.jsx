@@ -1,41 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   removeFromCart,
   updateQuantity,
   clearCart,
 } from "../../redux/cardSlice";
+import { setPaid } from "../../redux/orderSlice"; // Importa la acción setPaid
 import "./cart.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
-  // Función para aumentar la cantidad de un producto en el carrito
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate(); // Asegúrate de tener useNavigate
+  console.log(cartItems);
   const handleIncrement = (productId) => {
-    // Despacha la acción para aumentar la cantidad
     dispatch(updateQuantity({ productId, newQuantity: 1 }));
   };
 
-  // Función para disminuir la cantidad de un producto en el carrito
   const handleDecrement = (productId, currentQuantity) => {
-    // Despacha la acción para disminuir la cantidad
     if (currentQuantity > 1) {
       dispatch(updateQuantity({ productId, newQuantity: -1 }));
     } else {
-      // Si la cantidad es 1, elimina el producto del carrito
       dispatch(removeFromCart(productId));
     }
   };
 
-  // Función para eliminar todos los elementos del carrito
   const handleClearCart = () => {
-    // Despacha la acción para limpiar el carrito
     dispatch(clearCart());
   };
 
-  // Calcular el subtotal
+  const handlePayment = async () => {
+    setLoading(true);
+
+    navigate("/payment");
+
+    setLoading(false);
+  };
+
   const subtotal = cartItems.reduce(
     (total, item) => total + parseFloat(item.product.price) * item.quantity,
     0
@@ -93,8 +96,8 @@ const Cart = () => {
                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
               </svg>
             </button>{" "}
-            <button className="botonpaylink">
-              <Link to="/aja" className="pay-link">
+            <button onClick={handlePayment} className="botonpaylink">
+              <Link to="" className="pay-link">
                 {" "}
                 Ir a Pagar: $
                 {subtotal.toLocaleString("en-US", {

@@ -1,0 +1,58 @@
+/* productos.css */
+.averrrr {
+  margin-left: 20%;
+}
+.containerAllProductos {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+}
+
+.productosContainer {
+  margin-left: 20%;
+  width: 80%;
+}
+
+.containerProductosTitle {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-bottom: 30px;
+}
+
+.productosContainer table {
+  margin-left: 4.5%;
+  width: 90%;
+}
+
+.productosContainer th,
+.productosContainer td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.productosContainer th {
+  background-color: #aed581; /* Color de fondo pastel para encabezados */
+  color: #37474f; /* Color de texto para encabezados */
+}
+
+.productosContainer tbody tr:hover {
+  background-color: #f5f5f5; /* Cambia el color de fondo al pasar el ratón sobre una fila */
+}
+
+.productosContainer button {
+  padding: 8px 12px;
+  margin-right: 5px;
+  cursor: pointer;
+  background-color: #37474f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.productosContainer button:hover {
+  background-color: #3e2723;
+}
+.ajajuanchis {
+  margin-left: 20%;
+}

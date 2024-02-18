@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./home.css";
 import Letter from "./Letter/Letter";
 import About from "./About/About";
@@ -9,12 +9,18 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [showMenu, setShowMenu] = useState(true);
-
+  const aboutRef = useRef(null);
+  const Domiref = useRef(null);
   const toggleMenu = () => {
     console.log("Toggle Menu");
     setShowMenu(!showMenu);
   };
-
+  const scrollToAbout = () => {
+    aboutRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+  const domiscroll = () => {
+    Domiref.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
       <div className="containerNavBar">
@@ -27,16 +33,16 @@ const Home = () => {
 
         <div className="Words">
           <h3>Inicio</h3>
-          <h3>Sobre nosotros</h3>
-          <h3>Menú</h3>
-          <h3>Información</h3>
-          <Link to="/menu">
-            <div className="botondomicilio">
-              <p>Domicilio</p>
-            </div>
+          <h3 onClick={scrollToAbout}>Sobre nosotros</h3>
+          <Link to="menu">
+            <h3>Menú</h3>
           </Link>
+
+          <div onClick={domiscroll} className="botondomicilio">
+            <p>Domicilio</p>
+          </div>
         </div>
-    
+
         <div className="botonmenu">
           <button className="menuButton" onClick={toggleMenu}>
             ☰ Menú
@@ -44,9 +50,13 @@ const Home = () => {
         </div>
       </div>
       <Letter />
-      <About />
+      <div ref={aboutRef}>
+        <About />
+      </div>
       <Collage />
-      <Delivery />
+      <div ref={Domiref}>
+        <Delivery />
+      </div>
       <Footer />
     </div>
   );
