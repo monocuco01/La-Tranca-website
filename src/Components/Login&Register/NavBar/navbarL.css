@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   font-family: "Domine", serif;
+  color: black;
 }
 .containerLogoLogin {
   margin-left: 460px;
@@ -19,4 +20,25 @@
   font-size: larger;
   margin-left: 30px;
   font-weight: 600;
+}
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .containerLogoLogin {
+    margin-left: 0;
+  }
+  .containerVolver {
+    font-size: 12px;
+    margin-left: 5px;
+    font-weight: 600;
+    color: black;
+    display: flex;
+  }
+  .containerVolver svg {
+    height: 12px;
+    margin-top: 2px;
+  }
+  .containerVolver a {
+    width: 100px;
+
+    display: flex;
+  }
 }

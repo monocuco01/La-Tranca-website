@@ -39,7 +39,6 @@ const App = () => {
           path="/"
           element={
             <>
-              {" "}
               <Whatsapp />
               <Home />
             </>

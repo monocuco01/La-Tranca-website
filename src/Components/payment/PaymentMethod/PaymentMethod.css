@@ -9,3 +9,16 @@
   flex-direction: column;
   padding: 20px;
 }
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .containerPaymentM {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 4%;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+}

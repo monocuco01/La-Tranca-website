@@ -82,7 +82,7 @@ const NavBar = () => {
         </div>
         <div className="second">
           <Link to="/">
-            <div className="botondomicilio">
+            <div className="botondomicilios">
               <p>inicio</p>
             </div>
           </Link>

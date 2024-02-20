@@ -6,6 +6,7 @@ import Address from "./address/Address";
 import Summary from "./summary/Summary";
 import PaymentM from "./PaymentMethod/PaymentM";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Payment = () => {
   const currentUser = useSelector((state) => state.user.currentUser.id);
@@ -58,26 +59,29 @@ const Payment = () => {
         headers: {
           "Content-Type": "application/json",
         },
-
         body: JSON.stringify(requestData),
       });
-      console.log(requestData);
+
       const { cartId } = await response.json();
 
       setCartId(cartId);
       setIsCartDataSent(true);
     } catch (error) {
       console.error("Error al realizar la solicitud POST del carrito:", error);
+      throw error; // Relanzar el error para que sea manejado por la función llamante
     }
   };
 
   const sendOrderData = async () => {
-    if (
-      orderData.totalAmount !== null &&
-      orderData.shippingAddress !== null &&
-      isCartDataSent
-    ) {
-      try {
+    try {
+      // Esperar a que sendCartData termine antes de continuar
+      await sendCartData();
+
+      if (
+        orderData.totalAmount !== null &&
+        orderData.shippingAddress !== null &&
+        isCartDataSent
+      ) {
         const formattedTotalAmount = orderData.totalAmount.toLocaleString(
           "es-CO",
           {
@@ -94,9 +98,38 @@ const Payment = () => {
         });
 
         console.log("Respuesta del servidor:", response.data);
-      } catch (error) {
-        console.error("Error al crear la orden:", error.message);
+
+        // Agregar lógica específica para el log y el SweetAlert
+        if (response.data.success == true) {
+          Swal.fire({
+            title: "Pedido Realizado",
+            text: "¡Tu pedido ha sido realizado con éxito!",
+            icon: "success",
+          });
+        } else {
+          console.error("Error al realizar el pedido");
+          // Muestra un mensaje de error al usuario
+          Swal.fire({
+            title: "Error",
+            text: "Hubo un error al realizar el pedido. Por favor, inténtalo de nuevo.",
+            icon: "error",
+          });
+        }
       }
+    } catch (error) {
+      console.error("Error al crear la orden:", error.message);
+      // Tratar el error según sea necesario
+    }
+  };
+
+  const onSubmitOrder = async () => {
+    const notify = () => toast("Wow so easy!");
+    try {
+      // Realizar las operaciones en orden utilizando async/await
+      await sendOrderData();
+    } catch (error) {
+      console.error("Error al procesar la orden:", error.message);
+      // Tratar el error según sea necesario
     }
   };
 
@@ -106,12 +139,7 @@ const Payment = () => {
       <div className="containerallPaymentss">
         <Address onUpdateAddress={updateAddress} />
         <PaymentM />
-        <Summary
-          onSubmitOrder={() => {
-            sendCartData();
-            sendOrderData();
-          }}
-        />
+        <Summary onSubmitOrder={onSubmitOrder} />
       </div>
     </>
   );

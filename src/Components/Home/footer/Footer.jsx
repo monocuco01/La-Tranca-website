@@ -27,6 +27,7 @@ const Footer = () => {
       <div className="contact">
         <h3>contactanos</h3>
       </div>
+      
     </div>
   );
 };

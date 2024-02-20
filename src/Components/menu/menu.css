@@ -51,8 +51,30 @@ a {
   outline: none;
   text-decoration: none;
 }
+.botondomicilios {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  border-radius: 8px;
+  height: 35px;
+  width: 100px;
+  background-color: #211916;
+  margin-left: 20px; /* Adjusted the initial margin */
+  margin-top: 12px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Agregado efecto de transición */
+  cursor: pointer;
+}
+
+.botondomicilios:hover {
+  background-color: #382f25; /* Cambio de color de fondo al pasar el ratón */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Efecto de sombra al pasar el ratón */
+}
 @media only screen and (min-width: 320px) and (max-width: 440px) {
-  .botondomicilio {
+
+  .botondomicilios {
     display: none;
   }
 }

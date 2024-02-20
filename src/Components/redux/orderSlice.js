@@ -6,10 +6,16 @@ const orderSlice = createSlice({
     orders: [],
     isPaid: false,
     currentOrderId: null,
-    ordercita: [], // Nuevo estado para almacenar un array de detalles de pedidos
-    // ...otros estados
+    ordercita: [],
+    notifications: [],
   },
   reducers: {
+    addNotification: (state, action) => {
+      state.notifications = action.payload;
+    },
+    clearNotifications: (state) => {
+      state.notifications = [];
+    },
     setPaid: (state, action) => {
       state.isPaid = action.payload;
     },
@@ -38,6 +44,7 @@ export const {
   setCurrentOrderId,
   setOrdercita,
   addOrderToOrdercita,
+  addNotification,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

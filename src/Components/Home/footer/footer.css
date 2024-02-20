@@ -38,7 +38,10 @@
   .hidee {
     display: none;
   }
-  .contact{
+  .contact {
     display: none;
+  }
+  .footerparser img {
+    margin-left: 0px;
   }
 }

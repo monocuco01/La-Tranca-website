@@ -80,7 +80,7 @@ const Login = () => {
           <img src={nericafe} alt="aja" />
         </div>
         <div className="loginpart">
-          <div>
+          <div className="registraoingresa">
             <h2>Regístrate o ingresa para continuar</h2>
             <div className="containerformlogin">
               <form onSubmit={handleLogin}>

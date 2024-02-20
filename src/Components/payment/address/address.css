@@ -44,3 +44,16 @@
   border-color: white;
   background-color: #d9d9d9ab;
 }
+@media only screen and (min-width: 320px) and (max-width: 440px) {
+  .containerDireccion {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 4%;
+    margin-top: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+  }
+}

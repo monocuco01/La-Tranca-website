@@ -32,14 +32,32 @@ const Register = () => {
         email,
       });
 
-      // Maneja la respuesta del backend según tus necesidades
-      console.log("Registro exitoso:", response.data);
-
-      // Después del registro exitoso, puedes redirigir a otra página
-      navigate("/");
+      Swal.fire({
+        title: "¡Bienvenido de nuevo!",
+        text: "Disfruta del mejor café.",
+        icon: "success",
+        customClass: {
+          popup: "custom-swal",
+          title: "custom-swal",
+          htmlContainer: "custom-swal",
+          confirmButton: "custom-swal",
+        },
+      }).then((result) => {
+        // Verifica si el usuario hizo clic en el botón de confirmación
+        if (result.isConfirmed) {
+          window.location.href = "/login";
+        }
+      });
     } catch (error) {
-      console.error("Error al registrar");
-      // Maneja el error según tus necesidades
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Algo no está correcto. Por favor, verifica tus datos e intenta nuevamente.",
+        customClass: {
+          popup: "custom-swal",
+          title: "custom-swal",
+        },
+      });
     }
   };
 
@@ -51,7 +69,7 @@ const Register = () => {
           <img src={nericafe} alt="aja" />
         </div>
         <div className="loginpart">
-          <div>
+          <div className="registraoingresa">
             <h2>Regístrate o ingresa para continuar</h2>
             <div className="containerformlogin arrocitosssss">
               <form onSubmit={handleRegister}>

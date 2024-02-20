@@ -42,12 +42,6 @@ const Home = () => {
             <p>Domicilio</p>
           </div>
         </div>
-
-        <div className="botonmenu">
-          <button className="menuButton" onClick={toggleMenu}>
-            ☰ Menú
-          </button>
-        </div>
       </div>
       <Letter />
       <div ref={aboutRef}>
