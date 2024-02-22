@@ -8,8 +8,12 @@ const orderSlice = createSlice({
     currentOrderId: null,
     ordercita: [],
     notifications: [],
+    tokenaja: null,
   },
   reducers: {
+    tokenSet: (state, action) => {
+      state.tokenaja = action.payload;
+    },
     addNotification: (state, action) => {
       state.notifications = action.payload;
     },
@@ -45,6 +49,7 @@ export const {
   setOrdercita,
   addOrderToOrdercita,
   addNotification,
+  tokenSet,
 } = orderSlice.actions;
 
 export default orderSlice.reducer;

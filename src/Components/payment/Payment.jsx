@@ -13,7 +13,24 @@ const Payment = () => {
   const cartItems = useSelector((state) => state.cart);
   const [cartId, setCartId] = useState(null);
   const [isCartDataSent, setIsCartDataSent] = useState(false);
+  const tokenajas = useSelector((state) => state.order.tokenaja);
 
+  const enviarNotificacion = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/send", {
+        title: "Título de la notificación",
+        body: "Cuerpo de la notificación",
+        token: tokenajas,
+      });
+      console.log(response);
+      if (response.status === 200) {
+        console.log("Notificación enviada con éxito");
+        // Puedes manejar la respuesta exitosa aquí si es necesario
+      }
+    } catch (error) {
+      console.error("Error al enviar la notificación:", error);
+    }
+  };
   const [orderData, setOrderData] = useState({
     totalAmount: null,
     shippingAddress: null,
@@ -105,6 +122,10 @@ const Payment = () => {
             title: "Pedido Realizado",
             text: "¡Tu pedido ha sido realizado con éxito!",
             icon: "success",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              enviarNotificacion();
+            }
           });
         } else {
           console.error("Error al realizar el pedido");
@@ -123,7 +144,6 @@ const Payment = () => {
   };
 
   const onSubmitOrder = async () => {
-    const notify = () => toast("Wow so easy!");
     try {
       // Realizar las operaciones en orden utilizando async/await
       await sendOrderData();
