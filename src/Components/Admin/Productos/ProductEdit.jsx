@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "./ProductEdit.css";
+
 const ProductEdit = () => {
   const productIds = useSelector((state) => state.products.productIds);
   const cloudinaryWidget = useRef(null);
