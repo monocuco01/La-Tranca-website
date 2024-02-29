@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SideBar from "../sideBar/SideBar";
 import "./pedidos.css";
-import CardsOrder from "./cardsOrder";
+import CardsOrder from "../Pedidos/CardsOrder";
 import { getAuth, signInAnonymously } from "firebase/auth";
 
 import { getToken, onMessage } from "firebase/messaging";
