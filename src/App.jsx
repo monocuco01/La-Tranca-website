@@ -15,7 +15,7 @@ import "./App.css";
 import Pedidos from "./Components/Admin/Pedidos/Pedidos";
 import Productos from "./Components/Admin/Productos/Productos";
 import Users from "./Components/Admin/Users/Users";
-import OrderEdit from "./Components/Admin/Pedidos/orderEdit";
+
 import ProductEdit from "./Components/Admin/Productos/ProductEdit";
 import MiPedidos from "./Components/account/misPedidos/MiPedidos";
 
