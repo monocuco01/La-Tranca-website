@@ -3,11 +3,13 @@ import carrito from "../../../img/basket.svg";
 import person from "../../../img/person-circle (3).svg";
 import { Link } from "react-router-dom";
 import Cart from "../cart/Cart";
-import "./NavBar.css"; // Asegúrate de importar tus estilos CSS
+import "./navBar.css"; // Asegúrate de importar tus estilos CSS
 import { logout, selectIsAuthenticated } from "../../redux/loginSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../../redux/userSlice"; // Importa la acción clearUser
 import { clearCart } from "../../redux/cardSlice";
+
+
 const NavBar = () => {
   const [isCartModalOpen, setCartModalOpen] = useState(false);
   const [isAccountModalOpen, setAccountModalOpen] = useState(false);
