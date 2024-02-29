@@ -1,36 +1,147 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { logout, selectIsAuthenticated } from "../redux/loginSlice";
+import React, { useEffect, useState, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUser } from "../redux/userSlice";
+import UserNavBar from "./NavbarUSER/UserNavBar";
+import axios from "axios";
+import "./account.css";
 
 const Account = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.currentUser);
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const cloudinaryWidget = useRef(null);
 
-  // Podes usar el useEffect para cargar los datos del usuario solo cuando cambie currentUser
+  const [editedUser, setEditedUser] = useState(currentUser);
+
   useEffect(() => {
-    console.log(currentUser);
-    console.log(isAuthenticated);
-  }, [currentUser]);
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3001/users/order/${currentUser.id}`
+        );
+        setEditedUser(response.data.data);
+      } catch (error) {
+        console.error("Error al obtener datos del usuario:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [currentUser.id]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
+  const handleSaveChanges = async () => {
+    try {
+      const response = await axios.put(
+        `http://localhost:3001/users/${currentUser.id}`,
+        editedUser,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        dispatch(updateUser(response.data.data));
+        console.log("Cambios guardados exitosamente");
+        Swal.fire({
+          title: "perfil Editado",
+          text: "¡Has editado el perfil!",
+          icon: "success",
+        });
+      } else {
+        console.error(
+          "Error al intentar guardar cambios:",
+          response.data.message
+        );
+      }
+    } catch (error) {
+      console.error("Error en la petición:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un error de red. Por favor, verifica tu conexión e inténtalo de nuevo.",
+        icon: "error",
+      });
+    }
+  };
+
+  const openWidget = () => {
+    const cloudinaryConfig = {
+      cloudName: "dziwyqnqk",
+      uploadPreset: "kifrxmwu",
+    };
+
+    cloudinaryWidget.current = window.cloudinary.createUploadWidget(
+      cloudinaryConfig,
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          const imageUrl = result.info.secure_url;
+          setEditedUser((prevUser) => ({ ...prevUser, photoURL: imageUrl }));
+        }
+      }
+    );
+
+    cloudinaryWidget.current.open();
+  };
 
   return (
-    <div>
-      <h2>Account</h2>
-      {currentUser ? (
-        <div>
-          <p>Name: {currentUser.name}</p>
-          <p>Email: {currentUser.email}</p>
-          <p>phoneNumber: {currentUser.phoneNumber}</p>
-          {currentUser.photoURL && (
-            <img
-              src={currentUser.photoURL}
-              alt={`Photo of ${currentUser.name}`}
-              style={{ maxWidth: "100px" }}
-            />
-          )}
-        </div>
-      ) : (
-        <p>No se encontró información del usuario logueado.</p>
-      )}
+    <div className="">
+      <UserNavBar />
+      <div className="containercartadeaccount">
+        {currentUser ? (
+          <div className="user-profile">
+            <div className="profile-image">
+              <img
+                src={
+                  editedUser.photoURL ||
+                  "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                }
+                alt={`Photo of ${editedUser.name}`}
+                className="round-image"
+              />
+              <button onClick={openWidget}>Cambiar Foto</button>
+            </div>
+            <div className="profile-details">
+              <p>
+                Name:{" "}
+                <input
+                  type="text"
+                  name="name"
+                  value={editedUser.name}
+                  onChange={handleInputChange}
+                />
+              </p>
+              <p>
+                Email:{" "}
+                <input
+                  type="text"
+                  name="email"
+                  value={editedUser.email}
+                  onChange={handleInputChange}
+                />
+              </p>
+              <p>
+                Phone Number:{" "}
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  value={editedUser.phoneNumber}
+                  onChange={handleInputChange}
+                />
+              </p>
+              <button onClick={handleSaveChanges}>Guardar cambios</button>
+            </div>
+          </div>
+        ) : (
+          <p>No se encontró información del usuario logueado.</p>
+        )}
+      </div>
     </div>
   );
 };

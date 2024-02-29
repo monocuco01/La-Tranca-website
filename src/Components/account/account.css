@@ -1,0 +1,63 @@
+/* Account.css */
+.containercartadeaccount {
+  background-color: rgba(0, 0, 0, 0.116);
+  height: 80vh;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 0px;
+}
+.user-profile {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
+  background-color: rgba(214, 213, 213, 0.5);
+  align-items: center;
+  max-width: 80%;
+  margin: 20px auto;
+}
+
+.profile-image {
+  justify-content: space-around;
+  flex-direction: column;
+  margin-right: 100px;
+  background-color: rgba(214, 213, 213, 0.384);
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+
+  align-items: center;
+}
+
+.round-image {
+  border-radius: 100%;
+  min-height: 200px;
+  min-width: 300px;
+  max-width: 400px;
+  max-height: 300px;
+}
+
+.profile-details {
+  flex-grow: 1;
+
+  height: 250px;
+}
+
+/* Estilos para los inputs */
+.user-profile input {
+  width: 90%;
+  padding: 5px;
+  margin-bottom: 30px; /* Ajusta el espacio entre los inputs */
+}
+
+.user-profile button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Puedes agregar más estilos según tus preferencias */

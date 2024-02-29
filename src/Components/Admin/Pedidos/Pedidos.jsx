@@ -4,15 +4,15 @@ import SideBar from "../sideBar/SideBar";
 import "./pedidos.css";
 import CardsOrder from "./cardsOrder";
 import { getAuth, signInAnonymously } from "firebase/auth";
+
 import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "../../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { tokenSet } from "../../redux/orderSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Pedidos = () => {
-  const dispach = useDispatch();
   useEffect(() => {
     const loguearseYActivarMensajes = async () => {
       try {
@@ -30,13 +30,10 @@ const Pedidos = () => {
 
           if (token) {
             console.log("Tu token:", token);
-            dispach(tokenSet(token));
           } else {
             console.log("No tienes token, rey.");
           }
-        } catch (error) {
-          console.error("Error al obtener el token:", error);
-        }
+        } catch (error) {}
       } catch (error) {
         console.error("Error al autenticar al usuario:", error);
       }

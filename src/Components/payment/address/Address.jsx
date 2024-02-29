@@ -1,7 +1,5 @@
-// En el componente Address
 import React, { useState } from "react";
 import "./address.css";
-
 const Address = ({ onUpdateAddress }) => {
   const [isEditMode, setIsEditMode] = useState(false);
   const [deliveryAddress, setDeliveryAddress] = useState("Cra. 33 #50-07");
@@ -11,16 +9,25 @@ const Address = ({ onUpdateAddress }) => {
     setIsEditMode(true);
   };
 
-  const handleSaveClick = () => {
-    setIsEditMode(false);
+  const handleAddressChange = (e) => {
+    setDeliveryAddress(e.target.value);
 
-    // Obtén la información actualizada de la dirección
-    const addressData = {
+    // Actualiza la información automáticamente al componente padre (Payment)
+    onUpdateAddress({
+      address: e.target.value,
+      instructions: deliveryInstructions,
+    });
+  };
+
+  // Actualiza los datos automáticamente al cambiar las instrucciones
+  const handleInstructionsChange = (e) => {
+    setDeliveryInstructions(e.target.value);
+
+    // Actualiza la información automáticamente al componente padre (Payment)
+    onUpdateAddress({
       address: deliveryAddress,
-    };
-
-    // Llama a la función onUpdateAddress para enviar la información al componente padre (Payment)
-    onUpdateAddress(addressData);
+      instructions: e.target.value,
+    });
   };
 
   return (
@@ -32,9 +39,8 @@ const Address = ({ onUpdateAddress }) => {
             <input
               type="text"
               value={deliveryAddress}
-              onChange={(e) => setDeliveryAddress(e.target.value)}
+              onChange={handleAddressChange}
             />
-            <p onClick={handleSaveClick}>Guardar</p>
           </>
         ) : (
           <p onClick={handleEditClick}>Cambiar</p>
@@ -49,7 +55,7 @@ const Address = ({ onUpdateAddress }) => {
           type="text"
           placeholder="Detalles de entrega"
           value={deliveryInstructions}
-          onChange={(e) => setDeliveryInstructions(e.target.value)}
+          onChange={handleInstructionsChange}
         />
       </div>
     </div>

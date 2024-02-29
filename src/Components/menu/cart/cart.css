@@ -179,12 +179,14 @@
 }
 .a svg,
 .b svg,
-.c svg {
+.c svg,
+.d svg {
   margin-right: 10px;
 }
 .a a,
 .b a,
-.c a {
+.c a,
+.d a {
   color: #2c2c2c;
 }
 

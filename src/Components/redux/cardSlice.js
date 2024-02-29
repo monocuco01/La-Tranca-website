@@ -12,10 +12,12 @@ const saveCartToStorage = (cart) => {
 const cartSlice = createSlice({
   name: "cart",
   initialState: loadCartFromStorage(),
+
   reducers: {
     clearCart: (state, action) => {
       return [];
     },
+   
     addToCart: (state, action) => {
       const { product, quantity } = action.payload;
       const existingProductIndex = state.findIndex(
@@ -57,5 +59,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  updateQuantity,
+  clearCart,
+
+} = cartSlice.actions;
 export default cartSlice.reducer;

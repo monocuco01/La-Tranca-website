@@ -28,6 +28,11 @@
   margin-top: 100px;
   margin-bottom: 50px;
   margin-right: 40px;
+  cursor: pointer;
+  color: white;
+}
+.salir a {
+  color: white;
 }
 .containerOpcionesBar p:hover {
   width: 100%;

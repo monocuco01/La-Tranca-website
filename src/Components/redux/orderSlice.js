@@ -3,16 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const orderSlice = createSlice({
   name: "order",
   initialState: {
+    tokens: null,
     orders: [],
     isPaid: false,
     currentOrderId: null,
     ordercita: [],
     notifications: [],
-    tokenaja: null,
   },
   reducers: {
     tokenSet: (state, action) => {
-      state.tokenaja = action.payload;
+      state.token = action.payload;
     },
     addNotification: (state, action) => {
       state.notifications = action.payload;

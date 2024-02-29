@@ -13,14 +13,15 @@ const Payment = () => {
   const cartItems = useSelector((state) => state.cart);
   const [cartId, setCartId] = useState(null);
   const [isCartDataSent, setIsCartDataSent] = useState(false);
-  const tokenajas = useSelector((state) => state.order.tokenaja);
+  
 
   const enviarNotificacion = async () => {
     try {
       const response = await axios.post("http://localhost:3001/send", {
         title: "Título de la notificación",
         body: "Cuerpo de la notificación",
-        token: tokenajas,
+        token:
+          "eKOFsdTUkZ_1ZfwoUlNKpU:APA91bF38o79fkhjEDtR2wm3xvdIy4dyJZUNVLzLnAe6LM5aTsqFbWFpEQrQ7B2H4y0xltwtH6fkItigJSwkJrEoh0JFJ0sarCao12pAbCViiu4LOW5FyeXk4co_7uybcXtyL_yozVEa",
       });
       console.log(response);
       if (response.status === 200) {
@@ -36,13 +37,17 @@ const Payment = () => {
     shippingAddress: null,
     userId: currentUser,
     cartId: cartId,
+    instructions: null,
   });
 
   const updateAddress = (addressData) => {
     setOrderData((prevData) => ({
       ...prevData,
       shippingAddress: addressData.address,
+      // Verifica si hay instrucciones y actualiza el estado en consecuencia
+      instructions: addressData.instructions || prevData.instructions,
     }));
+    console.log(orderData);
   };
 
   const calculateTotalAmount = () => {
@@ -127,17 +132,16 @@ const Payment = () => {
               enviarNotificacion();
             }
           });
-        } else {
-          console.error("Error al realizar el pedido");
-          // Muestra un mensaje de error al usuario
-          Swal.fire({
-            title: "Error",
-            text: "Hubo un error al realizar el pedido. Por favor, inténtalo de nuevo.",
-            icon: "error",
-          });
         }
       }
     } catch (error) {
+      console.error("Error al realizar el pedido");
+      // Muestra un mensaje de error al usuario
+      Swal.fire({
+        title: "Error",
+        text: "Hubo un error al realizar el pedido. Por favor, inténtalo de nuevo.",
+        icon: "error",
+      });
       console.error("Error al crear la orden:", error.message);
       // Tratar el error según sea necesario
     }

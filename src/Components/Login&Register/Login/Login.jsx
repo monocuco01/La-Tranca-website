@@ -36,7 +36,6 @@ const Login = () => {
       const isPasswordCorrect = bcrypt.compareSync(password, user.password);
       const userEmailLowerCase = user.email.toLowerCase();
       const inputEmailLowerCase = email.toLowerCase();
-
       return userEmailLowerCase === inputEmailLowerCase && isPasswordCorrect;
     });
 
@@ -110,7 +109,6 @@ const Login = () => {
                     Ingresar
                   </button>
                   <br />
-                  <button className="google">Ingresar con Google</button>
                 </div>
               </form>
             </div>

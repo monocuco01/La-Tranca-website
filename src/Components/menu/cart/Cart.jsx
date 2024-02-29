@@ -14,7 +14,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // Asegúrate de tener useNavigate
-  console.log(cartItems);
+
   const handleIncrement = (productId) => {
     dispatch(updateQuantity({ productId, newQuantity: 1 }));
   };

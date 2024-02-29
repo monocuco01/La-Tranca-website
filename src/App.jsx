@@ -17,6 +17,7 @@ import Productos from "./Components/Admin/Productos/Productos";
 import Users from "./Components/Admin/Users/Users";
 import OrderEdit from "./Components/Admin/Pedidos/orderEdit";
 import ProductEdit from "./Components/Admin/Productos/ProductEdit";
+import MiPedidos from "./Components/account/misPedidos/MiPedidos";
 
 const App = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -28,8 +29,9 @@ const App = () => {
 
   const ProtectedAdminRoute = ({ element, path }) => {
     // Verifica si está autenticado y no es un administrador antes de renderizar el elemento
-    const isAdmin = useSelector((state) => state.user.currentUser?.isAdmin);
-    return isAuthenticated && !isAdmin ? element : <Navigate to="/login" />;
+    const isAdmin = useSelector((state) => state.user.currentUser.isAdmin);
+
+    return isAuthenticated && isAdmin ? element : <Navigate to="/login" />;
   };
 
   return (
@@ -107,11 +109,15 @@ const App = () => {
           element={<ProtectedRoute element={<Account />} />}
         />
         <Route
+          path="/orders"
+          element={<ProtectedRoute element={<MiPedidos />} />}
+        />
+        <Route
           path="/payment"
           element={<ProtectedRoute element={<Payment />} />}
         />
-        {/* Ruta predeterminada en caso de acceso no autorizado */}
-        {/* <Route path="*" element={<Navigate to="/login" />} /> */}
+
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </div>
   );

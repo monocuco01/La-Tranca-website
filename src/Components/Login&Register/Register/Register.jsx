@@ -12,6 +12,7 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    phoneNumber: "", // Nuevo campo para el número de teléfono
   });
 
   const handleInputChange = (e) => {
@@ -26,12 +27,13 @@ const Register = () => {
 
     try {
       // Lógica para registrar al usuario
-      const { password, email } = formData;
+      const { password, email, phoneNumber } = formData; // Asegúrate de incluir phoneNumber aquí
       const response = await axios.post("http://localhost:3001/users", {
         password,
         email,
+        phoneNumber, // Incluye phoneNumber en la solicitud POST
       });
-
+      console.log(response);
       Swal.fire({
         title: "¡Bienvenido de nuevo!",
         text: "Disfruta del mejor café.",
@@ -49,6 +51,7 @@ const Register = () => {
         }
       });
     } catch (error) {
+      console.error("Error de registro:", error.response.data);
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -73,7 +76,7 @@ const Register = () => {
             <h2>Regístrate o ingresa para continuar</h2>
             <div className="containerformlogin arrocitosssss">
               <form onSubmit={handleRegister}>
-                <label className="correo" htmlFor="email">
+                <label className="correos" htmlFor="email">
                   Correo
                 </label>
                 <input
@@ -84,7 +87,7 @@ const Register = () => {
                   required
                 />
                 <br />
-                <label className="contra" htmlFor="password">
+                <label className="contras" htmlFor="password">
                   Contraseña
                 </label>
                 <input
@@ -94,7 +97,7 @@ const Register = () => {
                   required
                 />
                 <br />
-                <label className="contraconfirm" htmlFor="confirmPassword">
+                <label className="contraconfirms" htmlFor="confirmPassword">
                   Confirmar Contraseña
                 </label>
                 <input
@@ -103,12 +106,22 @@ const Register = () => {
                   onChange={handleInputChange}
                   required
                 />
+                <br />
+                {/* Nuevo campo para el número de teléfono */}
+                <label className="telefono" htmlFor="phoneNumber">
+                  Número de Teléfono
+                </label>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  onChange={handleInputChange}
+                  required
+                />
                 <div className="botoneslogin">
                   <button className="ingresa" type="submit">
                     Registrar
                   </button>
                   <br />
-                  <button className="google">Registrar con Google</button>
                 </div>
               </form>
             </div>

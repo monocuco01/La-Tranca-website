@@ -33,9 +33,15 @@ const userSlice = createSlice({
       state.currentUser = action.payload;
       saveUserToStorage(state);
     },
+    updateUser: (state, action) => {
+      // Actualizar el currentUser con los datos proporcionados en payload
+      state.currentUser = { ...state.currentUser, ...action.payload };
+      saveUserToStorage(state);
+    },
     clearUser: clearUserData,
   },
 });
 
-export const { setUsers, addUser, loginUser, clearUser } = userSlice.actions;
+export const { setUsers, addUser, loginUser, updateUser, clearUser } =
+  userSlice.actions;
 export default userSlice.reducer;
