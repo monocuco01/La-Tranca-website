@@ -10,7 +10,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/users");
+        const response = await axios.get("https://la-tranca-backend.onrender.com/users");
         const fetchedData = response.data.data;
 
         if (Array.isArray(fetchedData)) {
@@ -51,7 +51,7 @@ const Users = () => {
 
     if (confirmDelete.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:3001/users/${userId}`);
+        await axios.delete(`https://la-tranca-backend.onrender.com/users/${userId}`);
         // Actualiza la lista de usuarios después de eliminar
         setUsers((prevUsers) => prevUsers.filter((user) => user.id !== userId));
         Swal.fire("Eliminado", "El usuario ha sido eliminado", "success");
