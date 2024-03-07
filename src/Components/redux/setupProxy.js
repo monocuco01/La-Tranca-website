@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/products",
     createProxyMiddleware({
-      target: "http://localhost:3001",
+      target: "https://la-tranca-backend.onrender.com",
       changeOrigin: true,
     })
   );
@@ -12,7 +12,7 @@ module.exports = function (app) {
   app.use(
     "/users",
     createProxyMiddleware({
-      target: "http://localhost:3001",
+      target: "https://la-tranca-backend.onrender.com",
       changeOrigin: true,
     })
   );
@@ -20,7 +20,7 @@ module.exports = function (app) {
   app.use(
     "/orders",
     createProxyMiddleware({
-      target: "http://localhost:3001",
+      target: "https://la-tranca-backend.onrender.com",
       changeOrigin: true,
     })
   );

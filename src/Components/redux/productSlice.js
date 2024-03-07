@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const backendUrl = "https://la-tranca-backend.onrender.com";  // Nueva URL del backend
+
 export const getAllProducts = createAsyncThunk("products/getAll", async () => {
   try {
-    const response = await fetch("http://localhost:3001/products");
+    const response = await fetch(`${backendUrl}/products`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -16,7 +18,7 @@ export const getProductById = createAsyncThunk(
   async (productId) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/products/${productId}`
+        `${backendUrl}/products/${productId}`
       );
       const data = await response.json();
       return data;
@@ -26,6 +28,7 @@ export const getProductById = createAsyncThunk(
     }
   }
 );
+
 const cartSlice = createSlice({
   name: "cart",
   initialState: [],
@@ -38,7 +41,7 @@ const cartSlice = createSlice({
 
 const productSlice = createSlice({
   name: "products",
-  initialState: { products: [], selectedProduct: null, productIds: 0 }, // Modificado el valor inicial de productId
+  initialState: { products: [], selectedProduct: null, productIds: 0 },
   reducers: {
     setProductIds: (state, action) => {
       state.productIds = action.payload;
@@ -55,5 +58,6 @@ const productSlice = createSlice({
     });
   },
 });
+
 export const { setProductIds } = productSlice.actions;
 export default productSlice.reducer;
