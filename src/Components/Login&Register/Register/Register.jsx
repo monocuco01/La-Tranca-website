@@ -28,7 +28,7 @@ const Register = () => {
     try {
       // Lógica para registrar al usuario
       const { password, email, phoneNumber } = formData; // Asegúrate de incluir phoneNumber aquí
-      const response = await axios.post("http://localhost:3001/users", {
+      const response = await axios.post("https://la-tranca-backend.onrender.com/users", {
         password,
         email,
         phoneNumber, // Incluye phoneNumber en la solicitud POST

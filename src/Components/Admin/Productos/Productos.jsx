@@ -15,7 +15,7 @@ const Productos = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/products");
+        const response = await axios.get("https://la-tranca-backend.onrender.com/products");
         setProductos(response.data.data);
       } catch (error) {
         console.error("Error al obtener los productos:", error.message);
@@ -52,7 +52,7 @@ const Productos = () => {
 
       if (result.isConfirmed) {
         // Lógica para eliminar el producto con el ID proporcionado
-        await axios.delete(`http://localhost:3001/products/${id}`);
+        await axios.delete(`https://la-tranca-backend.onrender.com/products/${id}`);
         // Actualiza la lista de productos después de eliminar
         setProductos((prevProductos) =>
           prevProductos.filter((producto) => producto.id !== id)

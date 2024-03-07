@@ -3,7 +3,6 @@ import axios from "axios";
 import SideBar from "../sideBar/SideBar";
 import "./inicio.css";
 
-
 const Inicio = () => {
   const [orderCount, setOrderCount] = useState(0);
   const [ACount, setACount] = useState(0);
@@ -12,7 +11,9 @@ const Inicio = () => {
   useEffect(() => {
     const fetchAcount = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:3001/users");
+        const respuesta = await axios.get(
+          "https://la-tranca-website-jmzn.vercel.app/users"
+        );
         setACount(respuesta.data.data.length);
       } catch (error) {
         console.error(
@@ -24,7 +25,9 @@ const Inicio = () => {
 
     const fetchOrderCount = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/orders");
+        const response = await axios.get(
+          "https://la-tranca-backend.onrender.com/orders"
+        );
         setOrderCount(response.data.orders.length);
         const latestOrders = response.data.orders.slice(0, 4); // Cambié a 4
         setLatestOrders(latestOrders);
@@ -44,8 +47,6 @@ const Inicio = () => {
     <div className="containerallinicio">
       <SideBar />
       <div className="containerInicioAdmim">
-   
-
         <div className="lape">
           <p>Inicio</p>
         </div>

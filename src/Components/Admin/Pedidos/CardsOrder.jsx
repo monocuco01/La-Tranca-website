@@ -11,7 +11,7 @@ const CardsOrder = () => {
   useEffect(() => {
     const fetchCartData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/users/cart");
+        const response = await axios.get("https://la-tranca-backend.onrender.com/users/cart");
 
         if (response.data.success && response.data.data.length > 0) {
           const userCarts = response.data.data;
@@ -33,7 +33,7 @@ const CardsOrder = () => {
   const handleDeleteOrder = async (orderId) => {
     try {
       // Envía una solicitud para eliminar la orden con el orderId
-      await axios.delete(`http://localhost:3001/orders/${orderId}`);
+      await axios.delete(`https://la-tranca-backend.onrender.com/orders/${orderId}`);
       // Actualiza la interfaz después de eliminar la orden
       setCartData((prevCartData) => {
         const updatedCartData = [...prevCartData];
@@ -57,7 +57,7 @@ const CardsOrder = () => {
 
     // Utiliza el ID del carrito para obtener detalles específicos del carrito
     try {
-      const response = await axios.get(`http://localhost:3001/carts/${cartId}`);
+      const response = await axios.get(`https://la-tranca-backend.onrender.com/carts/${cartId}`);
       setCarrito(response.data.products);
     } catch (error) {
       console.error("Error al obtener detalles del carrito:", error.message);

@@ -20,7 +20,9 @@ const Login = () => {
     // Lógica para obtener la lista de usuarios
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/users");
+        const response = await axios.get(
+          "https://la-tranca-backend.onrender.com/users"
+        );
         dispatch(setUsers(response.data.data)); // Despachá la acción para almacenar la lista de usuarios
       } catch (error) {
         console.error("Error al obtener la lista de usuarios:", error.message);

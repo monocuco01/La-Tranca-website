@@ -16,7 +16,7 @@ const Account = () => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/users/order/${currentUser.id}`
+          `https://la-tranca-backend.onrender.com/users/order/${currentUser.id}`
         );
         setEditedUser(response.data.data);
       } catch (error) {
@@ -38,7 +38,7 @@ const Account = () => {
   const handleSaveChanges = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:3001/users/${currentUser.id}`,
+        `https://la-tranca-backend.onrender.com/users/${currentUser.id}`,
         editedUser,
         {
           headers: {

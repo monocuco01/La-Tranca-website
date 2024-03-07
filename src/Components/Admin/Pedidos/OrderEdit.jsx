@@ -11,7 +11,7 @@ const OrderEdit = ({ isOpen, onClose }) => {
         const extractedOrderId = urlParts[urlParts.length - 1];
 
         const response = await axios.get(
-          `http://localhost:3001/orders/admin/${extractedOrderId}`
+          `https://la-tranca-backend.onrender.com/orders/admin/${extractedOrderId}`
         );
 
         if (response.data.order) {

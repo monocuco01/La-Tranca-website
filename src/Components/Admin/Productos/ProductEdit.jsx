@@ -30,7 +30,7 @@ const ProductEdit = () => {
         setProductId(productIdFromURL);
 
         const response = await axios.get(
-          `http://localhost:3001/products/${productIdFromURL}`
+          `https://la-tranca-backend.onrender.com/products/${productIdFromURL}`
         );
 
         if (response.status === 200) {
@@ -62,7 +62,7 @@ const ProductEdit = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:3001/products/${productId}`,
+        `https://la-tranca-backend.onrender.com/products/${productId}`,
         productData
       );
 
