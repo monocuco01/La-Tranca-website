@@ -17,7 +17,7 @@ const Payment = () => {
 
   const enviarNotificacion = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/send", {
+      const response = await axios.post("https://la-tranca-backend.onrender.com/send", {
         title: "Título de la notificación",
         body: "Cuerpo de la notificación",
         token:
@@ -76,7 +76,7 @@ const Payment = () => {
         productIds: productIds,
         quantities: cartItems.map((item) => item.quantity),
       };
-      const response = await fetch("http://localhost:3001/carts", {
+      const response = await fetch("https://la-tranca-backend.onrender.com/carts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const Payment = () => {
 
         const totalAmountWithPoint = formattedTotalAmount.replace(",", ".");
 
-        const response = await axios.post("http://localhost:3001/orders", {
+        const response = await axios.post("https://la-tranca-backend.onrender.com/orders", {
           ...orderData,
           totalAmount: totalAmountWithPoint,
         });
