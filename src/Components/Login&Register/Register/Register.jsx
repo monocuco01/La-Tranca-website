@@ -28,11 +28,14 @@ const Register = () => {
     try {
       // Lógica para registrar al usuario
       const { password, email, phoneNumber } = formData; // Asegúrate de incluir phoneNumber aquí
-      const response = await axios.post("https://la-tranca-backend.onrender.com/users", {
-        password,
-        email,
-        phoneNumber, // Incluye phoneNumber en la solicitud POST
-      });
+      const response = await axios.post(
+        "https://la-tranca-backend.onrender.com/users",
+        {
+          password,
+          email,
+          phoneNumber, // Incluye phoneNumber en la solicitud POST
+        }
+      );
       console.log(response);
       Swal.fire({
         title: "¡Bienvenido de nuevo!",
@@ -44,11 +47,6 @@ const Register = () => {
           htmlContainer: "custom-swal",
           confirmButton: "custom-swal",
         },
-      }).then((result) => {
-        // Verifica si el usuario hizo clic en el botón de confirmación
-        if (result.isConfirmed) {
-          window.location.href = "/login";
-        }
       });
     } catch (error) {
       console.error("Error de registro:", error.response.data);

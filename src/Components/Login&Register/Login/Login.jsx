@@ -54,11 +54,6 @@ const Login = () => {
           htmlContainer: "custom-swal",
           confirmButton: "custom-swal",
         },
-      }).then((result) => {
-        // Verifica si el usuario hizo clic en el botón de confirmación
-        if (result.isConfirmed) {
-          window.location.href = "/menu";
-        }
       });
     } else {
       Swal.fire({
