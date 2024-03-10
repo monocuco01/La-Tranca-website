@@ -13,16 +13,18 @@ const Payment = () => {
   const cartItems = useSelector((state) => state.cart);
   const [cartId, setCartId] = useState(null);
   const [isCartDataSent, setIsCartDataSent] = useState(false);
-  
 
   const enviarNotificacion = async () => {
     try {
-      const response = await axios.post("https://la-tranca-backend.onrender.com/send", {
-        title: "Título de la notificación",
-        body: "Cuerpo de la notificación",
-        token:
-          "eKOFsdTUkZ_1ZfwoUlNKpU:APA91bF38o79fkhjEDtR2wm3xvdIy4dyJZUNVLzLnAe6LM5aTsqFbWFpEQrQ7B2H4y0xltwtH6fkItigJSwkJrEoh0JFJ0sarCao12pAbCViiu4LOW5FyeXk4co_7uybcXtyL_yozVEa",
-      });
+      const response = await axios.post(
+        "https://la-tranca-backend.onrender.com/send",
+        {
+          title: "Nuevo Pedio $",
+          body: "Ingresa a pedidos para revisar ",
+          token:
+            "eKOFsdTUkZ_1ZfwoUlNKpU:APA91bF38o79fkhjEDtR2wm3xvdIy4dyJZUNVLzLnAe6LM5aTsqFbWFpEQrQ7B2H4y0xltwtH6fkItigJSwkJrEoh0JFJ0sarCao12pAbCViiu4LOW5FyeXk4co_7uybcXtyL_yozVEa",
+        }
+      );
       console.log(response);
       if (response.status === 200) {
         console.log("Notificación enviada con éxito");
@@ -76,13 +78,16 @@ const Payment = () => {
         productIds: productIds,
         quantities: cartItems.map((item) => item.quantity),
       };
-      const response = await fetch("https://la-tranca-backend.onrender.com/carts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
+      const response = await fetch(
+        "https://la-tranca-backend.onrender.com/carts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
 
       const { cartId } = await response.json();
 
@@ -114,10 +119,13 @@ const Payment = () => {
 
         const totalAmountWithPoint = formattedTotalAmount.replace(",", ".");
 
-        const response = await axios.post("https://la-tranca-backend.onrender.com/orders", {
-          ...orderData,
-          totalAmount: totalAmountWithPoint,
-        });
+        const response = await axios.post(
+          "https://la-tranca-backend.onrender.com/orders",
+          {
+            ...orderData,
+            totalAmount: totalAmountWithPoint,
+          }
+        );
 
         console.log("Respuesta del servidor:", response.data);
 
