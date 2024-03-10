@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "./productEdit.css"
+import "./productEdit.css";
 const ProductEdit = () => {
   const productIds = useSelector((state) => state.products.productIds);
   const cloudinaryWidget = useRef(null);
@@ -115,10 +115,8 @@ const ProductEdit = () => {
   };
 
   const handleExit = () => {
-    window.close();
-    // O puedes redirigir a otra URL utilizando window.location.href
-    // window.location.href = 'http://tu-url-de-destino';
-    window.location.href = "http://localhost:5173/adminpart/productos";
+    window.location.href =
+      "https://la-tranca-website-jmzn.vercel.app/adminpart/productos";
   };
   return (
     <div className="averrrr">
