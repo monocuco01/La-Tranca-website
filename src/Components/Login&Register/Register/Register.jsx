@@ -27,19 +27,19 @@ const Register = () => {
 
     try {
       // Lógica para registrar al usuario
-      const { password, email, phoneNumber } = formData; // Asegúrate de incluir phoneNumber aquí
+      const { password, email, phoneNumber } = formData;
       const response = await axios.post(
         "https://la-tranca-backend.onrender.com/users",
         {
           password,
           email,
-          phoneNumber, // Incluye phoneNumber en la solicitud POST
+          phoneNumber,
         }
       );
       console.log(response);
       Swal.fire({
-        title: "¡Bienvenido de nuevo!",
-        text: "Disfruta del mejor café.",
+        title: "¡Usuario registrado correctamente!",
+        text: "Inicia sesion para seguir.",
         icon: "success",
         customClass: {
           popup: "custom-swal",
