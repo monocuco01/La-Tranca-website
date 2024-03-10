@@ -54,6 +54,11 @@ const Login = () => {
           htmlContainer: "custom-swal",
           confirmButton: "custom-swal",
         },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Utiliza la función de navegación para redirigir
+          navigate("/menu");
+        }
       });
     } else {
       Swal.fire({
