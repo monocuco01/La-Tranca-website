@@ -20,7 +20,9 @@
   font-size: smaller;
   margin-top: 10px;
 }
-
+.Words {
+  color: #654f43;
+}
 .Words h3 {
   margin-top: 20px;
   margin-left: 20px; /* Adjusted the initial margin */
@@ -85,7 +87,6 @@
   }
 
   .botondomicilio {
-    
   }
 }
 /* Media Query para pantallas de hasta 620px */
