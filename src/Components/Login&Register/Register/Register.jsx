@@ -5,7 +5,6 @@ import LoginNavBar from "../NavBar/LoginNavBar";
 import nericafe from "../../../img/nericitacortada.jpg";
 import { Link } from "react-router-dom";
 import "./register.css";
-import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
