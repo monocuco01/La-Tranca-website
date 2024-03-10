@@ -114,10 +114,6 @@ const ProductEdit = () => {
     cloudinaryWidget.current.open();
   };
 
-  const handleExit = () => {
-    window.location.href =
-      "https://la-tranca-website-jmzn.vercel.app/adminpart/productos";
-  };
   return (
     <div className="averrrr">
       <form onSubmit={handleSubmit}>
@@ -160,9 +156,6 @@ const ProductEdit = () => {
         </button>
         <br />
         <button type="submit">enviar</button>
-        <button className="salirs" type="button" onClick={handleExit}>
-          Salir
-        </button>
       </form>
     </div>
   );

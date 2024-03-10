@@ -5,9 +5,11 @@ import LoginNavBar from "../NavBar/LoginNavBar";
 import nericafe from "../../../img/nericitacortada.jpg";
 import { Link } from "react-router-dom";
 import "./register.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -27,13 +29,13 @@ const Register = () => {
 
     try {
       // Lógica para registrar al usuario
-      const { password, email, phoneNumber } = formData;
+      const { password, email, phoneNumber } = formData; // Asegúrate de incluir phoneNumber aquí
       const response = await axios.post(
         "https://la-tranca-backend.onrender.com/users",
         {
           password,
           email,
-          phoneNumber,
+          phoneNumber, // Incluye phoneNumber en la solicitud POST
         }
       );
       console.log(response);
@@ -47,6 +49,11 @@ const Register = () => {
           htmlContainer: "custom-swal",
           confirmButton: "custom-swal",
         },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Utiliza la función de navegación para redirigir
+          navigate("/login");
+        }
       });
     } catch (error) {
       console.error("Error de registro:", error.response.data);
