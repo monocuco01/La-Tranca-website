@@ -3,6 +3,8 @@ import Card from "../Card/Card";
 import "./cards.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProducts } from "../../redux/productSlice";
+import Lottie from "lottie-react";
+import Animacion from "./Animacion.json"; // Ajusta la ruta a tu archivo JSON
 
 const Cards = () => {
   const dispatch = useDispatch();
@@ -15,12 +17,21 @@ const Cards = () => {
 
   // Verificar si products.data está definido y es un array
   if (!products || !products.data || !Array.isArray(products.data)) {
-    return <p>Loading...</p>;
+    // Mostrar animación de carga
+    return (
+      <div className="cargando">
+        <Lottie
+          animationData={Animacion}
+          style={{ width: "300px", height: "300px" }}
+        />
+        <p>Cargando Carta</p>
+        <p>Un momento... </p>
+      </div>
+    );
   }
-
   // Organizar productos por categoría
   const organizedCategories = products.data.reduce((result, product) => {
-    const categoryName = product.Category?.nameCategory || 'Uncategorized';
+    const categoryName = product.Category?.nameCategory || "Uncategorized";
 
     if (!result[categoryName]) {
       result[categoryName] = {
