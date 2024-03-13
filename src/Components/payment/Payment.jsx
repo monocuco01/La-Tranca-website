@@ -7,8 +7,11 @@ import Summary from "./summary/Summary";
 import PaymentM from "./PaymentMethod/PaymentM";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Lottie from "lottie-react";
+import Animation from "./Animation.json";
 
 const Payment = () => {
+  const [isMakingOrder, setIsMakingOrder] = useState(false);
   const currentUser = useSelector((state) => state.user.currentUser.id);
   const cartItems = useSelector((state) => state.cart);
   const [cartId, setCartId] = useState(null);
@@ -19,7 +22,7 @@ const Payment = () => {
       const response = await axios.post(
         "https://la-tranca-backend.onrender.com/send",
         {
-          title: "Nuevo Pedio $",
+          title: "Nuevo Pedido $",
           body: "Ingresa a pedidos para revisar ",
           token:
             "eKOFsdTUkZ_1ZfwoUlNKpU:APA91bF38o79fkhjEDtR2wm3xvdIy4dyJZUNVLzLnAe6LM5aTsqFbWFpEQrQ7B2H4y0xltwtH6fkItigJSwkJrEoh0JFJ0sarCao12pAbCViiu4LOW5FyeXk4co_7uybcXtyL_yozVEa",
@@ -28,12 +31,12 @@ const Payment = () => {
       console.log(response);
       if (response.status === 200) {
         console.log("Notificación enviada con éxito");
-        // Puedes manejar la respuesta exitosa aquí si es necesario
       }
     } catch (error) {
       console.error("Error al enviar la notificación:", error);
     }
   };
+
   const [orderData, setOrderData] = useState({
     totalAmount: null,
     shippingAddress: null,
@@ -46,10 +49,8 @@ const Payment = () => {
     setOrderData((prevData) => ({
       ...prevData,
       shippingAddress: addressData.address,
-      // Verifica si hay instrucciones y actualiza el estado en consecuencia
       instructions: addressData.instructions || prevData.instructions,
     }));
-    console.log(orderData);
   };
 
   const calculateTotalAmount = () => {
@@ -57,7 +58,6 @@ const Payment = () => {
       (total, item) => total + parseFloat(item.product.price) * item.quantity,
       0
     );
-
     return subtotal;
   };
 
@@ -90,78 +90,69 @@ const Payment = () => {
       );
 
       const { cartId } = await response.json();
-
       setCartId(cartId);
       setIsCartDataSent(true);
     } catch (error) {
       console.error("Error al realizar la solicitud POST del carrito:", error);
-      throw error; // Relanzar el error para que sea manejado por la función llamante
+      throw error;
     }
   };
 
   const sendOrderData = async () => {
     try {
-      // Esperar a que sendCartData termine antes de continuar
+      setIsMakingOrder(true);
       await sendCartData();
 
-      if (
-        orderData.totalAmount !== null &&
-        orderData.shippingAddress !== null &&
-        isCartDataSent
-      ) {
-        const formattedTotalAmount = orderData.totalAmount.toLocaleString(
-          "es-CO",
-          {
-            style: "currency",
-            currency: "COP",
-          }
-        );
-
-        const totalAmountWithPoint = formattedTotalAmount.replace(",", ".");
-
-        const response = await axios.post(
-          "https://la-tranca-backend.onrender.com/orders",
-          {
-            ...orderData,
-            totalAmount: totalAmountWithPoint,
-          }
-        );
-
-        console.log("Respuesta del servidor:", response.data);
-
-        // Agregar lógica específica para el log y el SweetAlert
-        if (response.data.success == true) {
-          Swal.fire({
-            title: "Pedido Realizado",
-            text: "¡Tu pedido ha sido realizado con éxito!",
-            icon: "success",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              enviarNotificacion();
+      setOrderData((prevData) => {
+        if (
+          prevData.totalAmount !== null &&
+          prevData.shippingAddress !== null &&
+          isCartDataSent
+        ) {
+          const formattedTotalAmount = prevData.totalAmount.toLocaleString(
+            "es-CO",
+            {
+              style: "currency",
+              currency: "COP",
             }
-          });
-        }
-      }
-    } catch (error) {
-      console.error("Error al realizar el pedido");
-      // Muestra un mensaje de error al usuario
-      Swal.fire({
-        title: "Error",
-        text: "Hubo un error al realizar el pedido. Por favor, inténtalo de nuevo.",
-        icon: "error",
-      });
-      console.error("Error al crear la orden:", error.message);
-      // Tratar el error según sea necesario
-    }
-  };
+          );
 
-  const onSubmitOrder = async () => {
-    try {
-      // Realizar las operaciones en orden utilizando async/await
-      await sendOrderData();
+          const totalAmountWithPoint = formattedTotalAmount.replace(",", ".");
+
+          axios
+            .post("https://la-tranca-backend.onrender.com/orders", {
+              ...prevData,
+              totalAmount: totalAmountWithPoint,
+            })
+            .then((response) => {
+              console.log("Respuesta del servidor:", response.data);
+              if (response.data.success === true) {
+                Swal.fire({
+                  title: "Pedido Realizado",
+                  text: "¡Tu pedido ha sido realizado con éxito!",
+                  icon: "success",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    enviarNotificacion();
+                  }
+                });
+              }
+            })
+            .catch((error) => {
+              console.error("Error al realizar el pedido:", error.message);
+              Swal.fire({
+                title: "Error",
+                text: "Hubo un error al realizar el pedido. Por favor, inténtalo de nuevo.",
+                icon: "error",
+              });
+            });
+        }
+        return prevData;
+      });
     } catch (error) {
       console.error("Error al procesar la orden:", error.message);
-      // Tratar el error según sea necesario
+    } finally {
+      setIsMakingOrder(false);
     }
   };
 
@@ -171,7 +162,13 @@ const Payment = () => {
       <div className="containerallPaymentss">
         <Address onUpdateAddress={updateAddress} />
         <PaymentM />
-        <Summary onSubmitOrder={onSubmitOrder} />
+        <Summary onSubmitOrder={sendOrderData} />
+        {isMakingOrder && (
+          <div className="making-order-message">
+            <Lottie className="lotie" animationData={Animation} />
+            <p>Haciendo pedido, por favor espera...</p>
+          </div>
+        )}
       </div>
     </>
   );

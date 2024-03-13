@@ -7,6 +7,37 @@
   flex-wrap: wrap;
   flex-direction: column;
 }
+.making-order-message {
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.438
+  ); /* Color de fondo con opacidad */
+  padding: 20px;
+  text-align: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra para resaltar */
+  border-radius: 8px;
+}
+.making-order-message p {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+.lotie {
+  height: 200px;
+}
 @media only screen and (min-width: 320px) and (max-width: 440px) {
   .containerallPaymentss {
     background-color: rgba(187, 185, 185, 0.486);

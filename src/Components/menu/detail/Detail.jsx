@@ -93,6 +93,39 @@ const Detail = ({ quantity }) => {
     return <p>Product not found.</p>;
   }
 
+  const handleAddAndPay = () => {
+    const cartItem = {
+      product: selectedProduct,
+      quantity: counter,
+    };
+
+    dispatch(addToCart(cartItem));
+
+    console.log("Producto agregado al carrito:", cartItem);
+
+    if (isAuthenticated) {
+      Toastify({
+        text: "Producto agregado al carrito",
+        duration: 1200,
+        destination: "/",
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          margin: "10px",
+        },
+      }).showToast();
+
+      // Navega a la página de pago
+      navigate("/payment");
+    } else {
+      // Si no está autenticado, lleva al usuario a la página de inicio de sesión
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       {/* Agrega un overlay detrás del modal */}
@@ -155,7 +188,7 @@ const Detail = ({ quantity }) => {
           <button className="palcarro" onClick={handleAddToCart}>
             Agregar y seguir comprando
           </button>
-          <button className="comprar">
+          <button className="comprar" onClick={handleAddAndPay}>
             Agregar y pagar ${selectedProduct.price}
           </button>
         </div>
