@@ -9,6 +9,42 @@
   flex-direction: column;
   padding: 20px;
 }
+.containersLogos {
+  margin-top: 30px;
+}
+.containerNequi {
+  background-color: rgba(128, 128, 128, 0.158);
+  height: 50px;
+  display: flex;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  align-items: center;
+}
+.containerNequi img {
+  width: 70px;
+}
+
+.containerCashLogo {
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(128, 128, 128, 0.158);
+  height: 50px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.containerCashLogo img {
+  width: 50px;
+}
+.containerNequi p {
+  margin-left: 50px;
+  font-weight: 600;
+  color: black;
+}
+.containerCashLogo p {
+  margin-left: 70px;
+  font-weight: 600;
+  color: black;
+}
 @media only screen and (min-width: 320px) and (max-width: 440px) {
   .containerPaymentM {
     width: 80%;

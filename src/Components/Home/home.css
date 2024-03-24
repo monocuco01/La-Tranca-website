@@ -19,8 +19,16 @@
   font-family: "Inter", sans-serif;
   font-size: smaller;
   margin-top: 10px;
+  cursor: pointer;
 }
-.words a {
+
+.menu a {
+  color: #654f43;
+}
+.ajajuantusabe {
+  color: #654f43;
+}
+.menu h3 {
   color: #654f43;
 }
 .Words h3 {

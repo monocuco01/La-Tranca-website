@@ -14,7 +14,8 @@ const Delivery = () => {
           <h1>Tenemos domicilios</h1>
           <p>Con nuestro servicio disfruta del mejor cafe en minutos </p>
           <Link
-            to="https://wa.me/3244707930?text=Hola,%20me%20gustaría%20realizar%20un%20pedido.%20¿Podrías%20proporcionarme%20más%20información%20sobre%20los%20productos%20disponibles%20y%20el%20proceso%20de%20compra?"
+            to="https://wa.me/3244707930?text=¡Hola!%20Bienvenido/a%20a%20Tranca%20Café.%20Para%20poder%20procesar%20tu%20pedido,%20¿podrías%20proporcionarme%20la%20siguiente%20información%3F%0A%0ADirección%20de%20entrega%3A%0ANombre%20completo%3A%0AProductos%20que%20deseas%20ordenar%3A%0ANúmero%20de%20teléfono%20de%20contacto%3A%0A%0A¡Gracias%20por%20tu%20ayuda!
+            "
             target="_blank"
           >
             <button>solicitar ahora</button>

@@ -13,18 +13,11 @@ const Summary = ({ onSubmitOrder }) => {
     0
   );
 
-  // Tarifa de servicio (puedes ajustar este valor según tus necesidades)
-  const serviceFee = 5;
+  const shippingCost = 2.5;
 
-  // Costo del envío (puedes ajustar este valor según tus necesidades)
-  const shippingCost = 10;
-
-  // Calcular el total sumando los costos
-  const total = productsCost + serviceFee + shippingCost;
+  const total = productsCost + shippingCost;
 
   const handlePlaceOrder = () => {
-    // Aquí puedes realizar acciones relacionadas con el pedido
-    // Por ejemplo, enviar los detalles de la orden al servidor
     const orderDetails = {
       productsCost,
       serviceFee,
@@ -32,10 +25,8 @@ const Summary = ({ onSubmitOrder }) => {
       total,
     };
 
-    // Llamar a la función onSubmitOrder para enviar los detalles de la orden
     onSubmitOrder(orderDetails);
 
-    // Marcar el pedido como completado en el estado de Redux
     dispatch(setPaid(true));
   };
 
@@ -49,9 +40,7 @@ const Summary = ({ onSubmitOrder }) => {
           <div className="brrrr">
             <p>Costo de productos:</p> <p>${productsCost.toFixed(3)}</p>
           </div>
-          <div className="brrrr">
-            <p>Tarifa de servicio:</p> <p>${serviceFee.toFixed(3)}</p>{" "}
-          </div>
+
           <div className="brrrr">
             <p>Costo del envío: </p> <p>${shippingCost.toFixed(3)}</p>
           </div>

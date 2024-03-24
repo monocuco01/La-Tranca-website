@@ -11,7 +11,9 @@
 .containerLogoLogin {
   margin-left: 460px;
 }
-
+.containerVolver {
+  color: black;
+}
 .containerLogoLogin img {
   height: 50px;
 }

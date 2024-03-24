@@ -3,10 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import UserNavBar from "../NavbarUSER/UserNavBar";
 import "./mispedidos.css";
+import { useSelector, useDispatch } from "react-redux";
 const MiPedidos = () => {
   const [cartData, setCartData] = useState([]);
   const [expandedOrderId, setExpandedOrderId] = useState(null);
   const [carrito, setCarrito] = useState([]);
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   useEffect(() => {
     const fetchCartData = async () => {

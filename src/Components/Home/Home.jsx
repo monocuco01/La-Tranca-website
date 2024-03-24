@@ -35,7 +35,9 @@ const Home = () => {
           <h3>Inicio</h3>
           <h3 onClick={scrollToAbout}>Sobre nosotros</h3>
           <Link to="menu">
-            <h3>Menú</h3>
+            <div className="ajajuantusabe">
+              <h3>Menú</h3>
+            </div>
           </Link>
 
           <div onClick={domiscroll} className="botondomicilio">

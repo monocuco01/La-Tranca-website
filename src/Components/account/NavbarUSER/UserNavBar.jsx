@@ -15,12 +15,11 @@ const UserNavBar = () => {
           <Link to="/">Inicio</Link>
         </li>
         <li>
-          <Link to="/orders">Mis Pedidos</Link>
+          <Link to="">Mis Pedidos</Link>
         </li>
         <li>
           <Link to="/account">Perfil</Link>
         </li>
-        {/* Agrega más elementos de menú según tus necesidades */}
       </ul>
     </nav>
   );
