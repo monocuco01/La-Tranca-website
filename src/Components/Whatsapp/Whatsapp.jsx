@@ -6,7 +6,7 @@ const Whatsapp = () => {
   return (
     <div className="whatsapp-container animate__animated animate__fadeInRight">
       <Link
-        to="https://wa.me/3244707930?text=¡Hola!%20Quisiera%20realizar%20un%20pedido."
+        to="https://wa.me/3104353091?text=¡Hola!%20Quisiera%20realizar%20un%20pedido."
         target="_blank"
       >
         <svg

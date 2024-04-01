@@ -6,11 +6,11 @@ import Other from "./payment-methods-svgrepo-com.svg";
 
 const PaymentM = () => {
   const nequiLink =
-    "https://wa.me/3244707930?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
+    "https://wa.me/3104353091?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
   const cashLink =
-    "https://wa.me/3244707930?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
+    "https://wa.me/3104353091?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
   const otherLink =
-    "https://wa.me/3244707930?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
+    "https://wa.me/3104353091?text=¡Hola!%20Quisiera%20realizar%20un%20pedido.";
 
   return (
     <div className="containerPaymentM">

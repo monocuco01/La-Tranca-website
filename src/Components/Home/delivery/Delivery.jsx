@@ -14,8 +14,7 @@ const Delivery = () => {
           <h1>Tenemos domicilios</h1>
           <p>Con nuestro servicio disfruta del mejor cafe en minutos </p>
           <Link
-            to="https://wa.me/3244707930?text=¡Hola!%20Bienvenido/a%20a%20Tranca%20Café.%20Para%20poder%20procesar%20tu%20pedido,%20¿podrías%20proporcionarme%20la%20siguiente%20información%3F%0A%0ADirección%20de%20entrega%3A%0ANombre%20completo%3A%0AProductos%20que%20deseas%20ordenar%3A%0ANúmero%20de%20teléfono%20de%20contacto%3A%0A%0A¡Gracias%20por%20tu%20ayuda!
-            "
+            to="https://wa.me/3104353091?text=¡Hola!%20Quisiera%20realizar%20un%20pedido."
             target="_blank"
           >
             <button>solicitar ahora</button>
@@ -23,7 +22,7 @@ const Delivery = () => {
         </div>
         <div className="photocontainer">
           <img
-            src="https://res.cloudinary.com/dziwyqnqk/image/upload/v1705436077/La%20Tranca/244023275_2671121533190663_1590550133037041859_n_phtfks.jpg"
+            src="https://res.cloudinary.com/dziwyqnqk/image/upload/v1712008451/La%20Tranca/El_2023_fu%C3%A9_un_a%C3%B1o_de_muchos_retos_cambios_y_sorpresas_en_el_cual_nos_reinventamos_varias_veces_a_petici%C3%B3n_de_un_mundo_cambiante_pero_sobre_todo_una_tranca_que_busca_siempre_mejorar_desde_el_amor_po_yyojmn.jpg"
             alt="risas"
           />
         </div>
